@@ -8,11 +8,13 @@ let currentIndex = -1; //현재 선택된 주차장의 인덱스
 function searchParking(){
     var destination = document.getElementById("destinationInput").value;
     //destination에 가까운 주차장을 검색결과를 받아옴->searchResults
+    // searchResults << 0 : 주차장 이름, 1 : 거리, 2 : 주소, 3 : 전체주차면, 4 : 주차가능면, 5 : 평균대기시간
 
-    searchResults = [["주차장 A", "100m", "서울시 강남구 역삼동 123-45", 100],
-        ["주차장 B", "200m", "서울시 강남구 논현동 678-90", 150],
-        ["주차장 C", "200m", "서울시 강남구 논현동 678-90", 150],
-        ["주차장 D", "200m", "서울시 강남구 논현동 678-90", 150]];
+    searchResults = [["주차장 A", "100m", "서울시 강남구 역삼동 123-45", 100, 55, 5],
+        //주차장 B는 꽉 차있는 시나리오 설명을 위해 남은 주차면수 0으로 설정
+        ["주차장 B", "200m", "서울시 강남구 논현동 678-90", 150, 0, 13],
+        ["주차장 C", "200m", "서울시 강남구 논현동 678-90", 150, 33, 7],
+        ["주차장 D", "200m", "서울시 강남구 논현동 678-90", 150, 11], 8];
     // 추가 정보는 이곳에 배열로 추가
 
 
@@ -58,14 +60,94 @@ function displaySearchResults(){
 
 function showDetails(){
     var detailsModalBody = document.getElementById("detailsModalBody");
-    detailsModalBody.innerHTML = "<h3>주차장 이름: " + searchResults[currentIndex][0] + "</h3>" +
-        "<strong>주소:</strong> " + searchResults[currentIndex][2] + "<br>" +
-        "<strong>전체 주차면:</strong> " + searchResults[currentIndex][3] + "<br>" +
-        "<strong>주차가능면:</strong> " + searchResults[currentIndex][3] + "<br>" +
-        "<strong>요금 정보:</strong> " + "주차장마다 다름" + "<br>" +
-        "<strong>운영 정보:</strong> " + "주차장마다 다름";
+    var parkingAvailable = searchResults[currentIndex][4] > 0 ? searchResults[currentIndex][4] : "현재 주차 불가능";
+    var parkingText;
+    if (searchResults[currentIndex][4] === 0) {
+        parkingText = "불가능";
+    }
+    else {
+        parkingText = "가능!";
+    }
+    var parkingProgress = Math.round((searchResults[currentIndex][4] / searchResults[currentIndex][3]) * 100);
+
+    detailsModalBody.innerHTML = "<h3>" + searchResults[currentIndex][0] + " <span class='badge text-bg-secondary'> " + parkingText + "</span></h3>" +
+        "<div class='progress'>" +
+        "<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' style='width: " + parkingProgress + "%;' aria-valuenow='" + parkingProgress + "' aria-valuemin='0' aria-valuemax='100'>" + parkingProgress + "%</div>" +
+        "</div>" +
+        "<strong> <i class=\"bi bi-geo-alt\"></i> </strong> " + searchResults[currentIndex][2] + "<br>" +
+
+
+        "<strong>전체 주차면:</strong> " + "<span class='badge text-bg-secondary'> " + searchResults[currentIndex][3] + "</span>" + "<br>" +
+        "<strong>주차가능면:</strong> " + "<span class='badge text-bg-secondary'> " + searchResults[currentIndex][4] + "</span>" + "<br>" +
+
+        "<p class='d-inline-flex gap-1' style='margin-top: 20px;'>" +
+        "<a class='btn btn-outline-primary' data-bs-toggle='collapse' href='#feeInfo' role='button' aria-expanded='false' aria-controls='feeInfo'>운영 및 요금 정보 확인</a>" +
+        "</p>" +
+        "<div class='row'>" +
+        "<div class='col'>" +
+        "<div class='collapse' id='feeInfo'>" +
+        "<div class='card card-body'>" +
+        "기본 요금(시간) : 무료/10분\n" +
+        "추가 요금(시간) : 1,000원/10분\n" +
+        "경차/저공해자동차 할인율 : 50%\n" +
+        "장애인 할인율 : 80%\n" +
+        "국가유공자/고엽제후유증 할인율 : 80%\n" +
+        "다자녀(세자녀) 할인율 : 50%\n" +
+
+        "평일 운영시간 : 09:00 ~ 21:00\n" +
+        "기타 정보\n" +
+    "개방시간 - 오전 09:00~오후 21:00\n" +
+    "운영시간 외, 토, 일, 공휴일 무료\n" +
+        "장애인(8면), 나눔카(2면), 전기충전(6면), 조업(2면) 등은 일반차량이 주차 할 수 없어 현장정보와 다를 수 있음" +
+
+    "</div>" +
+        "</div>" +
+        "</div>" +
+        "</div>" +
+        "<br>" +
+
+        "<strong>평균 대기 시간:</strong> " + searchResults[currentIndex][5] + "분<br>";
+
+
 
     var detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'), {});
+    detailsModal._element.addEventListener('shown.bs.modal', function () {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
     detailsModal.show();
 }
 
