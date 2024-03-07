@@ -161,3 +161,165 @@ ul{
     background-color: #80cbc4; /* 클릭되었을 때 배경색 변경 */
 }
 
+
+
+.user-profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    float: left;
+}
+
+.user-status {
+    margin-left: 100px;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.box {
+    border: 1px solid lightgray;
+    padding: 15px 20px;
+}
+
+.box2 {
+    border: 1px solid lightgray;
+    padding: 30px 50px;
+    display: flex;
+}
+
+.text {
+    margin: auto 0 auto 30px;
+}
+
+.bold-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.small-text {
+    font-weight: normal;
+    font-size: 14px;
+    color: gray;
+}
+
+.right-arrow{
+    background: none;
+    border: none;
+    float: right;
+}
+
+.left-arrow {
+    background: none;
+    border: none;
+    float: left;
+}
+
+.plus, .minus {
+    background: none;
+    border: none;
+    float: left;
+    font-size: 25px;
+}
+
+.logout {
+    background: none;
+    border: none;
+    float: right;
+    margin-right: 20px;
+}
+
+.header{
+    margin: 20px 0px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.gray-partition {
+    width: 100%;
+    height: 20px;
+    background: #f1f3f5;
+}
+
+.gray-partition2 {
+    height: 100vh;
+    width: 100%;
+    background: #f1f3f5;
+}
+
+form {
+    border: 1px solid lightgray;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+input, select{
+    width: 100%;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.button {
+    width: 50%;
+    padding: 20px;
+    line-height: 0px;
+    background: royalblue;
+    color: white;
+    border: none;
+}
+
+.line {
+    border-bottom: 1px solid lightgray;
+}
+
+.v-line {
+    border-left : 1px solid lightgray;
+    height : 50px;
+}
+
+select option[value=""][disabled] {
+    display: none;
+}
+
+.toggleSwitch {
+    width: 70px;
+    height: 35px;
+    position: relative;
+    border: lightgray 1px solid;
+    border-radius: 30px;
+}
+
+.toggleSwitch .toggleButton {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: lightgray 1px solid;
+    border-radius: 50%;
+    background: white;
+}
+
+#toggle:checked ~ .toggleSwitch {
+    background: royalblue;
+}
+
+#toggle:checked ~ .toggleSwitch .toggleButton {
+    left: calc(100% - 37px);
+    background: white;
+}
+
+.toggleSwitch, .toggleButton {
+    transition: all 0.1s ease-in;
+}
+
+.right-array {
+    display: flex;
+    margin-left: auto;
+}
