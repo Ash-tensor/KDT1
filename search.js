@@ -57,7 +57,16 @@ function displaySearchResults(){
 }
 
 function showDetails(){
+    var detailsModalBody = document.getElementById("detailsModalBody");
+    detailsModalBody.innerHTML = "<h3>주차장 이름: " + searchResults[currentIndex][0] + "</h3>" +
+        "<strong>주소:</strong> " + searchResults[currentIndex][2] + "<br>" +
+        "<strong>전체 주차면:</strong> " + searchResults[currentIndex][3] + "<br>" +
+        "<strong>주차가능면:</strong> " + searchResults[currentIndex][3] + "<br>" +
+        "<strong>요금 정보:</strong> " + "주차장마다 다름" + "<br>" +
+        "<strong>운영 정보:</strong> " + "주차장마다 다름";
 
+    var detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'), {});
+    detailsModal.show();
 }
 
 

@@ -92,6 +92,20 @@
     </div>
 
     <!-- 사이드바 -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel2">사이드바</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- 사이드바 내용 -->
+            사이드바
+
+        </div>
+    </div>
+
+    //여기부터 추가
+
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">사이드바</h5>
@@ -101,6 +115,22 @@
             <!-- 사이드바 내용 -->
             <div>
                 <p>로그인 안해 있으면 여기 로그인 화면이 나오거나 하면 괜찮을것같아요</p>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.5);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">주차장 세부 정보</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="detailsModalBody">
+                    <!-- Details will be added here -->
+                </div>
             </div>
         </div>
     </div>
