@@ -3,8 +3,27 @@
     padding-right: 0;
 }
 
+.modal-content {
+    padding: 10px;
+}
+
+#detailsModalLabel {
+    display: none;
+}
+
+#modalCloseButton {
+    display: none;
+}
+
+#detailsModalBody {
+    border-radius: 5px;
+    border: #98A7FF 2px solid;
+    color: black;
+}
+
+
 .outer-border {
-    border: 1px solid #000;
+    border: 1px solid #98A7FF;
 }
 
 .hieght-100 {
@@ -88,4 +107,3 @@
 .parking-info:active {
     background-color: #80cbc4; /* 클릭되었을 때 배경색 변경 */
 }
-
