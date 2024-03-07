@@ -27,6 +27,78 @@
     height: 100%;
 }
 
+/* --- login style.css ---*/
+ul{
+    list-style:none;
+}
+.login {
+    width: 810px;
+    position: absolute
+}
+.login h2 {
+    font-size: 40px;
+    color: #111;
+}
+.p {
+    border-bottom: 2px solid rgba(217, 217, 217, 0.9);
+    height: 35px;
+    margin-left: -11px;
+    width: 394px;
+}
+.login > ul {
+    padding: 0 0 0;
+}
+.login > ul li {
+    padding: 0 0 12px;
+}
+.login > ul li input {
+    width: 40%;
+    height:38px;
+}
+.login > ul li input::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #9fa19f;
+}
+.login > ul li input[type="checkbox"] {
+    position: absolute;
+    left: -3000%;
+}
+.login > ul li input[type="checkbox"] + label:before {
+    content: "";
+    display: inline-block;
+    margin:0 4px 0 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #666;
+    background: #fff;
+    vertical-align: -3px;
+}
+.login > ul li input[type="checkbox"]:checked + label:before {
+    background: url(./asset/7.png) no-repeat #333;
+    border-color: #333;
+    background-position: center;
+    background-size: contain;
+}
+.login button {
+    width: 40%;
+    height: 40px;
+    border-color: rgb(255, 255, 255);
+    background: #B29F9F;
+    color: #fff;
+}
+.login div ul {
+    display: flex;
+    justify-content: left;
+}
+.login div ul li {
+    padding: 0 10px;
+}
+.login div ul li a {
+    font-size: 14px;
+    color: #111;
+}
+
+
 .section_search {
     padding: 30px 20px;
     background-color: dodgerblue;

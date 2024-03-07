@@ -3,3 +3,6 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/KDT1.iml
+/modules.xml
+/vcs.xml
