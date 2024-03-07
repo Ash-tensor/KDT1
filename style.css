@@ -3,6 +3,25 @@
     padding-right: 0;
 }
 
+.modal-content {
+    padding: 10px;
+}
+
+#detailsModalLabel {
+    display: none;
+}
+
+#modalCloseButton {
+    display: none;
+}
+
+#detailsModalBody {
+    border-radius: 5px;
+    border: #98A7FF 2px solid;
+    color: black;
+}
+
+
 .outer-border {
     border: 1px solid #000;
 }
