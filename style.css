@@ -97,3 +97,67 @@ ul{
     font-size: 14px;
     color: #111;
 }
+
+
+.section_search {
+    padding: 30px 20px;
+    background-color: dodgerblue;
+    position: relative;
+
+}
+
+.section_search #destinationInput{
+    border-radius: 10px;
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1); /* 그림자 효과 설정 */
+    border: 2px solid #fff; /* 테두리 색상을 연한 회색으로 변경 */
+    outline: none;
+}
+
+#destinationInput::placeholder{
+    padding-left: 10px;
+}
+
+.section_search button{
+    margin: 0;
+    border: none;
+    position: absolute;
+    width: 30px;
+    height:30px;
+    right: 10px;
+    margin-top: 5px;
+    margin-right:15px;
+    background: url("https://i.ibb.co/k6tmJVT/image.png") no-repeat;
+    background-size: contain;
+}
+
+.section_searchResult{
+    padding:10px;
+    max-height: 70%; /* 섹션의 최대 높이 설정 */
+    overflow-y: auto; /* 섹션 내용이 섹션 크기를 벗어날 때 수직 스크롤을 보여줌 */
+}
+.section_searchResult p{
+    font-size: 40px;
+}
+.parking-info {
+    border-top: 1px solid #dddddd; /* 위쪽에 1px 실선 경계선 추가 */
+    border-bottom: 1px solid #dddddd; /* 아래쪽에 1px 실선 경계선 추가 */
+    padding: 10px 0; /* 상하 여백 추가 */
+}
+
+.parking-info .parking-lot {
+    text-decoration: underline; /* 주차면에 밑줄 추가 */
+    color:red;
+}
+
+.parking-info:hover {
+    background-color: #e0f2f1; /* 마우스를 올렸을 때 배경색 변경 */
+}
+
+.parking-info:active {
+    background-color: #80cbc4; /* 클릭되었을 때 배경색 변경 */
+}
+

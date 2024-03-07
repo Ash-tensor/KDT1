@@ -25,7 +25,7 @@
                         <a class="nav-link active" aria-current="page" href="#">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">공지사항</a>
+                        <a class="nav-link" href="notice.html">공지사항</a>
                     </li>
                     <!--                <li class="nav-item dropdown">-->
                     <!--                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
@@ -54,9 +54,32 @@
             <!-- 첫 번째 칼럼 -->
             <div class="col outer-border col-4 hieght-100">
 
-                <p>
-                    여기를 수정해주시면 될것같아요
-                </p>
+                <!--목적지 검색창-->
+                <!--form요소의 기본 enter키 이벤트때문에 form을 div로 변경함-->
+                <div class="section_search">
+
+                    <!--select id="distanceOption">
+                        <option value="100">100m</option>
+                        <option value="500">500m</option>
+                        <option value="1000">1km</option>
+                         //거리 범위제한을 둘수있음.
+                    </select>-->
+                    <input type="text" id="destinationInput" placeholder="목적지 검색">
+                    <button type="button" onclick="searchParking()" id="searchButton"></button>
+
+
+                </div>
+                <div class="section_searchResult">
+                    <div id="totalResults"></div> <!-- 검색 결과 총 건수를 표시할 곳 -->
+                    <div id="parkingResults">
+                        <p id="searchPlaceholder">목적지를 검색하세요.</p>
+                        <p id="noResultsMessage" style="display: none;">선택한 범위 내에 주차장이 없습니다.</p>
+
+                    </div>
+                    <div id="parkingDetails"></div>
+                </div>
+
+
             </div>
             <!-- 두 번째 칼럼 -->
             <div id="mapContainer" class="col outer-border hieght-100">
@@ -69,6 +92,20 @@
     </div>
 
     <!-- 사이드바 -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel2">사이드바</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- 사이드바 내용 -->
+            사이드바
+
+        </div>
+    </div>
+
+    //여기부터 추가
+
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">사이드바</h5>
@@ -97,11 +134,28 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+
+
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.5);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">주차장 세부 정보</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="detailsModalBody">
+                    <!-- Details will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
 </div>
 
-
+<script src="placeholder.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
