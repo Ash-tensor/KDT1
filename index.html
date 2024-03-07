@@ -25,7 +25,7 @@
                         <a class="nav-link active" aria-current="page" href="#">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">공지사항</a>
+                        <a class="nav-link" href="notice.html">공지사항</a>
                     </li>
                     <!--                <li class="nav-item dropdown">-->
                     <!--                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
@@ -54,9 +54,32 @@
             <!-- 첫 번째 칼럼 -->
             <div class="col outer-border col-4 hieght-100">
 
-                <p>
-                    여기를 수정해주시면 될것같아요
-                </p>
+                <!--목적지 검색창-->
+                <!--form요소의 기본 enter키 이벤트때문에 form을 div로 변경함-->
+                <div class="section_search">
+
+                    <!--select id="distanceOption">
+                        <option value="100">100m</option>
+                        <option value="500">500m</option>
+                        <option value="1000">1km</option>
+                         //거리 범위제한을 둘수있음.
+                    </select>-->
+                    <input type="text" id="destinationInput" placeholder="목적지 검색">
+                    <button type="button" onclick="searchParking()" id="searchButton"></button>
+
+
+                </div>
+                <div class="section_searchResult">
+                    <div id="totalResults"></div> <!-- 검색 결과 총 건수를 표시할 곳 -->
+                    <div id="parkingResults">
+                        <p id="searchPlaceholder">목적지를 검색하세요.</p>
+                        <p id="noResultsMessage" style="display: none;">선택한 범위 내에 주차장이 없습니다.</p>
+
+                    </div>
+                    <div id="parkingDetails"></div>
+                </div>
+
+
             </div>
             <!-- 두 번째 칼럼 -->
             <div id="mapContainer" class="col outer-border hieght-100">
@@ -86,6 +109,7 @@
 
 </div>
 
-
+<script src="placeholder.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
