@@ -7,6 +7,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/17448c044c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Title</title>
@@ -16,9 +19,9 @@
 <div>
     <nav class="navbar navbar-expand-lg no-padding bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" id="navbar-txt" href="#">
                 <img src="./asset/6-removebg.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
-                로고가 여기 들어갑니다
+                파킹고
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">홈</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="notice.html">공지사항</a>
@@ -44,7 +47,7 @@
                     <!--                </li>-->
                     <li class="nav-item">
                     <!--마이페이지 관련 사이드바를 여는 버튼-->
-                        <button class="btn btn-primary" type="button" onclick="showOffcanvas()">
+                        <button class="btn btn-purple" type="button" onclick="showOffcanvas()">
                             개인화 메뉴
                         </button>
                     </li>
@@ -71,8 +74,9 @@
                     <input type="text" id="destinationInput" placeholder="목적지 검색">
                     <button type="button" onclick="searchParking()" id="searchButton"></button>
 
-
                 </div>
+
+
                 <div class="section_searchResult">
                     <div id="totalResults"></div> <!-- 검색 결과 총 건수를 표시할 곳 -->
                     <div id="parkingResults">
@@ -150,16 +154,16 @@
                 <img class="user-profile" src="/asset/profile.png">
                 <p class="user-status">홍길동 <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></p>
             </div>
-            <div class="box">
+            <div class="gray-box">
                 <p class="mb-auto">개인정보 수정<button class="right-arrow" onclick="location.href='user-info-modify.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
-            <div class="box">
+            <div class="gray-box">
                 <p class="mb-auto">관심 주차장<button class="right-arrow" onclick="location.href='user-parkinglot.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
-            <div class="box">
+            <div class="gray-box">
                 <p class="mb-auto">알림 설정<button class="right-arrow" onclick="location.href='user-alarm.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
-            <div class="box">
+            <div class="gray-box">
                 <p class="mb-auto">회원 탈퇴<button class="right-arrow" onclick="location.href='user-quit.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
         </div>

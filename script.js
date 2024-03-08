@@ -20,20 +20,24 @@ document.getElementById("logoutButton").addEventListener("click", function() {
     sessionStorage.setItem("signIn", "false");
 });
 
-// 페이지가 로드될 때 signIn 값이 true면 마이페이지 오프캔버스를 호출
-window.onload = function() {
-    if (signIn) {
-        let myPageOffcanvas = new bootstrap.Offcanvas(document.getElementById("myPageOffcanvas"));
-        myPageOffcanvas.show();
-    }
-};
+// 뒤로가기 누르면 마이페이지 바로 호출됨
+function myPageBackward() {
+    location.href = "index.html";
+    let myPageOffcanvas = new bootstrap.Offcanvas(document.getElementById("myPageOffcanvas"));
+    myPageOffcanvas.show();
+}
+
+// 마이페이지 오프캔버스 호출 함수
+function showmyPageOffCanvas() {
+    let myPageOffcanvas = new bootstrap.Offcanvas(document.getElementById("myPageOffcanvas"));
+    myPageOffcanvas.show();
+}
 
 // 오프캔버스 호출 함수 (로그인, 비로그인 상태에 따라 나타나는 오프캔버스가 다름)
 function showOffcanvas() {
     // signIn이 true면 마이페이지 오프캔버스 호출
     if (signIn) {
-        let myPageOffcanvas = new bootstrap.Offcanvas(document.getElementById("myPageOffcanvas"));
-        myPageOffcanvas.show();
+        showmyPageOffCanvas();
     } // signIn 값이 false면 '로그인 페이지' 오프캔버스를 토글
     else {
         let loginOffcanvas = new bootstrap.Offcanvas(document.getElementById("loginOffcanvas"));
