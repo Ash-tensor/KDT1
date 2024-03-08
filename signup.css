@@ -1,18 +1,21 @@
+/*--- 제목(회원가입) ---*/
 .signup > h1 {
     margin-left: 10px;
 }
 
+/*---  ---*/
 .signup > h4 {
     text-align: center;
 }
 
 #wrap {
-    width: 860px;
+    width: 700px;
     height: auto;
     min-height: 800px;
     margin: auto;
     background-color: rgb(255, 255, 255);
     border:2px solid #d9d9d9;
+    color: #000000;
 }
 
 .title2 {
@@ -41,6 +44,11 @@
     width: 100%;
     margin-bottom: 5px;
 }
+.usrid{
+    background:url(./asset/person.png) no-repeat center right 6px;
+    background-size: 30px;
+    background-color: #fff;
+}
 
 .userpw{
     background:url(./asset/8.png) no-repeat center right 15px;
@@ -51,6 +59,18 @@
 .userpw-confirm{
     background:url(./asset/9.png) no-repeat center right 15px;
     background-size: 20px;
+    background-color: #fff;
+}
+
+.usrid{
+    background:url(./asset/person.png) no-repeat center right 6px;
+    background-size: 30px;
+    background-color: #fff;
+}
+
+.usrph{
+    background:url(./asset/globe.png) no-repeat center right 6px;
+    background-size: 30px;
     background-color: #fff;
 }
 
@@ -92,7 +112,7 @@
 }
 
 body{
-    font-family: 'Noto Sans KR', sans-serif;
+
     font-size:14px;
     background-color: #f5f6f7;
     line-height: 1.5em;
@@ -114,7 +134,7 @@ a{
 
 .member input[type=button],
 .member input[type=submit]{
-    background-color: #b29f9f;
+    background-color: #995BD5;
     color:#fff
 }
 

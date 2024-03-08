@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">공지사항</a>
+                        <a class="nav-link" href="notice.html">공지사항</a>
                     </li>
                     <li class="nav-item">
                         <!--마이페이지 관련 사이드바를 여는 버튼-->
@@ -41,14 +41,14 @@
     <!-- 회원가입 메인 내용 -->
     <div class="signup">
         <h1>회원가입</h1>
-        <hr><h4>OOO 회원가입을 진심으로 환영합니다</h4></hr>
+        <hr><h4>파킹고 회원가입을 진심으로 환영합니다</h4></hr>
     </div>
     <div id="wrap">
         <p><h3 class="title2">회원 기본정보 입력</h3></p>
         <div class="member">
             <!-- 아이디 입력 -->
             <h4 class="list">아이디<span id="idError"></span></h4>
-            <span class="box int_id" ><input type="text" placeholder="4~15자리 이내의 영문과 숫자로만 입력" id="id" class="int check" maxlength="15" required></span>
+            <span class="box int_id" ><input class="usrid" type="text" placeholder="4~15자리 이내의 영문과 숫자로만 입력" id="id" class="int check" maxlength="15" required></span>
             <!-- 비밀번호 입력 -->
             <h4 class="list">비밀번호<span id="pwError"></span></h4>
             <span class="box int_id"><input class="userpw" type="password" placeholder="8자리 이상 사용" id="pw" class="int check" maxlength="15" required></span>
@@ -57,10 +57,10 @@
             <span class="box int_id"><input class="userpw-confirm" type="password" id="pwCheck" class="int check" maxlength="15"></span>
             <!-- 성명 입력 -->
             <h4 class="list">성명<span id="nameError"></span></h4>
-            <span class="box int_id"><input type="text" id="name" class="int check" maxlength="20"></span>
+            <span class="box int_id"><input input class="usrid" type="text" id="name" class="int check" maxlength="20"></span>
             <!-- 전화번호 입력 -->
-            <h4 class="list">전화번호("-" 제외)<span id="phoneNumError"></span></h4>
-            <span class="box int_id"><input type="text" id="phoneNum" class="int check" maxlength="11"></span>
+            <h4 class="list">전화번호('-' 제외하고 입력)<span id="phoneNumError"></span></h4>
+            <span class="box int_id"><input class="usrph" type="text" id="phoneNum" class="int check" maxlength="11"></span>
             <!-- 가입하기 버튼 -->
             <input type="submit" value="가입하기">
         </div>
@@ -73,7 +73,7 @@
             <a href="#none">책임의 한계와 법적고지</a>
             <a href="#none">회원정보 고객센터</a>
         </div>
-        <span><a href="#none">OOO Corp.</a></span>
+        <span><a href="#none">파킹고 Corp.</a></span>
     </div>
 
 
