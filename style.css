@@ -205,7 +205,7 @@ ul{
 }
 
 /* --- 여기서부터 마이페이지에 쓰인 css입니다 ---*/
-
+/*유저 프로필 표시*/
 .user-profile {
     width: 80px;
     height: 80px;
@@ -213,6 +213,7 @@ ul{
     float: left;
 }
 
+/*유저 닉네임 및 로그아웃 버튼 표시*/
 .user-status {
     margin-left: 100px;
     line-height: 80px;
@@ -220,44 +221,52 @@ ul{
     font-size: 20px;
 }
 
-.box {
+/*회색 border 박스*/
+.gray-box {
     border: 1px solid lightgray;
     padding: 15px 20px;
 }
 
-.box2 {
+/*회색 border 박스(패딩이 더 들어감)*/
+.gray-box2 {
     border: 1px solid lightgray;
     padding: 30px 50px;
     display: flex;
 }
 
+/*텍스트(왼쪽 패딩 들어감)*/
 .text {
     margin: auto 0 auto 30px;
 }
 
+/*텍스트 굵게*/
 .bold-text {
     font-size: 18px;
     font-weight: bold;
 }
 
+/*작은 텍스트*/
 .small-text {
     font-weight: normal;
     font-size: 14px;
     color: gray;
 }
 
-.right-arrow{
+/*오른쪽 화살표 아이콘*/
+.right-arrow {
     background: none;
     border: none;
     float: right;
 }
 
+/*왼쪽 화살표 아이콘*/
 .left-arrow {
     background: none;
     border: none;
     float: left;
 }
 
+/*플러스, 마이너스 아이콘*/
 .plus, .minus {
     background: none;
     border: none;
@@ -265,6 +274,7 @@ ul{
     font-size: 25px;
 }
 
+/*로그아웃 아이콘*/
 .logout {
     background: none;
     border: none;
@@ -272,28 +282,33 @@ ul{
     margin-right: 20px;
 }
 
+/*헤더 부분*/
 .header{
     margin: 20px 0px;
     text-align: center;
     font-weight: bold;
 }
 
+/*구역을 나누는 회색 파티션*/
 .gray-partition {
     width: 100%;
     height: 20px;
     background: #f1f3f5;
 }
 
+/*구역을 나누는 회색 파티션(나머지 높이 전체 차지)*/
 .gray-partition2 {
     height: 100vh;
     width: 100%;
     background: #f1f3f5;
 }
 
+/*회색 테두리 폼*/
 form {
     border: 1px solid lightgray;
 }
 
+/*테이블 너비, 간격*/
 table {
     width: 80%;
     margin: 20px auto;
@@ -301,13 +316,15 @@ table {
     border-spacing: 10px;
 }
 
-input, select{
+/*회색 둥근 테두리 입력 칸*/
+.gray-input{
     width: 100%;
     height: 35px;
     border: 1px solid lightgray;
     border-radius: 5px;
 }
 
+/*파란 버튼*/
 .button {
     width: 50%;
     padding: 20px;
@@ -317,19 +334,23 @@ input, select{
     border: none;
 }
 
+/*회색 라인(수평)*/
 .line {
     border-bottom: 1px solid lightgray;
 }
 
+/*회색 라인(수직)*/
 .v-line {
     border-left : 1px solid lightgray;
     height : 50px;
 }
 
+/*select 가리는 옵션*/
 select option[value=""][disabled] {
     display: none;
 }
 
+/*토글 스위치*/
 .toggleSwitch {
     width: 70px;
     height: 35px;
@@ -362,6 +383,7 @@ select option[value=""][disabled] {
     transition: all 0.1s ease-in;
 }
 
+/*오른쪽 끝으로 나열*/
 .right-array {
     display: flex;
     margin-left: auto;
