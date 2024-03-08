@@ -39,6 +39,10 @@
     width: 40vw;
 }
 
+.margin-left-10{
+    margin-left: 10px;
+}
+
 #map {
     height: 100%;
     width: 100%;
@@ -142,7 +146,7 @@ ul{
 
 
 .section_search {
-    padding: 30px 20px;
+    padding: 20px 20px 0 20px;
     /*background-color: dodgerblue;*/
     background-color: #CAA3EF;
     position: relative;
@@ -161,7 +165,7 @@ ul{
 }
 
 #destinationInput::placeholder{
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .section_search button{
@@ -178,13 +182,30 @@ ul{
 }
 
 .section_searchResult{
+
     padding:10px;
     max-height: 70%; /* 섹션의 최대 높이 설정 */
     overflow-y: auto; /* 섹션 내용이 섹션 크기를 벗어날 때 수직 스크롤을 보여줌 */
 }
 .section_searchResult p{
+    margin-left: 10px;
     font-size: 40px;
 }
+
+.rangeDropdown{
+    background-color: #CAA3EF;
+    padding: 10px 10px 20px 10px;
+}
+
+.rangeDropdownBtn{
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 120px;
+    height: 30px;
+    font-size: 10px;
+}
+
+
 .parking-info {
     border-top: 1px solid #dddddd; /* 위쪽에 1px 실선 경계선 추가 */
     border-bottom: 1px solid #dddddd; /* 아래쪽에 1px 실선 경계선 추가 */
@@ -388,3 +409,4 @@ select option[value=""][disabled] {
     display: flex;
     margin-left: auto;
 }
+
