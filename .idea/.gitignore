@@ -3,3 +3,14 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/KDT1.iml
+/modules.xml
+/vcs.xml
+# 디폴트 무시된 파일
+/shelf/
+/workspace.xml
+# 에디터 기반 HTTP 클라이언트 요청
+/httpRequests/
+/modules.xml
+/vcs.xml
+/KDT1.iml
