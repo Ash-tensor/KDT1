@@ -143,8 +143,8 @@ ul{
 
 .section_search {
     padding: 30px 20px;
-    /*background-color: dodgerblue;*/
-    background-color: #CAA3EF;
+    /*background-color: #c738ff;*/
+    background-color: #d56dff;
     position: relative;
 
 }
@@ -205,6 +205,11 @@ ul{
 }
 
 /* --- 여기서부터 마이페이지에 쓰인 css입니다 ---*/
+/*마이페이지 오프캔버스(사이드바) 헤더*/
+.offcanvas-header {
+    background: #d56dff;
+}
+
 /*유저 프로필 표시*/
 .user-profile {
     width: 80px;
