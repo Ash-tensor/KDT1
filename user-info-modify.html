@@ -10,37 +10,37 @@
     <title>개인 정보 수정</title>
 </head>
 <body>
-    <div class="box">
-        <h4 class="header">개인 정보 수정<button class="left-arrow" onclick="location.href='index.html'"><i class="fa-solid fa-chevron-left"></i></button></h4>
+    <div class="gray-box">
+        <h4 class="header">개인 정보 수정<button class="left-arrow"><i class="fa-solid fa-chevron-left"></i></button></h4>
     </div>
     <div class="gray-partition"></div>
     <form method="get" action="">
         <table>
             <tr>
                 <td>닉네임</td>
-                <td colspan="3"><input type="text" name="user_nickname"></td>
+                <td colspan="3"><input type="text" class="gray-input" name="user_nickname"></td>
             </tr>
             <tr>
                 <td class="line" colspan="4"></td>
             </tr>
             <tr>
                 <td>기존 비밀번호</td>
-                <td colspan="3"><input type="password" name="user_pw"></td>
+                <td colspan="3"><input type="password" class="gray-input" name="user_pw"></td>
             </tr>
             <tr>
                 <td>새 비밀번호</td>
-                <td><input type="password" name="user_pw2"></td>
+                <td><input type="password" class="gray-input" name="user_pw2"></td>
                 <td>새 비밀번호 확인</td>
-                <td><input type="password" name="user_pw2_check"></td>
+                <td><input type="password" class="gray-input" name="user_pw2_check"></td>
             </tr>
             <tr>
                 <td class="line" colspan="4"></td>
             </tr>
             <tr>
                 <td>이메일</td>
-                <td colspan="2"><input type="text" name="user_email1"></td>
+                <td colspan="2"><input type="text" class="gray-input" name="user_email1"></td>
                 <td>
-                    <select name="user_email2">
+                    <select class="gray-input" name="user_email2">
                         <option value="naver">@naver.com</option>
                         <option value="gmail">@gmail.com</option>
                         <option value="daum">@daum.net</option>
@@ -52,12 +52,12 @@
             </tr>
             <tr>
                 <td>전화번호</td>
-                <td colspan="3"><input type="tel" name="user_tel" placeholder="  '-' 제외하고 입력"></td>
+                <td colspan="3"><input type="tel" class="gray-input" name="user_tel" placeholder="  '-' 제외하고 입력"></td>
             </tr>
             <tr>
                 <td colspan="4" class="text-center">
                     <br>
-                    <input class="button" type="submit" value="변경">
+                    <input class="button" type="submit" class="gray-input" value="변경">
                 </td>
             </tr>
         </table>
