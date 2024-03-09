@@ -40,6 +40,7 @@
     padding: 15px;
     width: 100%;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .userpw{
@@ -114,8 +115,9 @@ a{
 
 .member input[type=button],
 .member input[type=submit]{
-    background-color: #b29f9f;
-    color:#fff
+    background-color: #d56dff;
+    color:#fff;
+    border-radius: 5px;
 }
 
 

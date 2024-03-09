@@ -319,11 +319,6 @@ ul{
     background: #f1f3f5;
 }
 
-/*회색 테두리 폼*/
-form {
-    border: 1px solid lightgray;
-}
-
 /*테이블 너비, 간격*/
 table {
     width: 80%;
@@ -344,7 +339,7 @@ table {
 .button {
     width: 50%;
     padding: 20px;
-    line-height: 0px;
+    /*line-height: 0px;*/
     background: royalblue;
     color: white;
     border: none;
@@ -404,3 +399,4 @@ select option[value=""][disabled] {
     display: flex;
     margin-left: auto;
 }
+
