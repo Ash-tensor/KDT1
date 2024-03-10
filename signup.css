@@ -15,6 +15,21 @@
     border:2px solid #d9d9d9;
 }
 
+/*위 wrap에서 min-height, background 요소 뺌*/
+#wrap2 {
+    width: 860px;
+    margin: auto;
+}
+
+/*위 wrap에서 min-height 요소 뺌*/
+#wrap3 {
+    width: 860px;
+    height: auto;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    border:2px solid #d9d9d9;
+}
+
 .title2 {
     margin-left: 10px;
 }
@@ -40,6 +55,7 @@
     padding: 15px;
     width: 100%;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .userpw{
@@ -62,7 +78,7 @@
 
 .member-footer div a:hover{
     text-decoration: underline;
-    color:#2db400
+    color: #d56dff;
 }
 
 .member-footer div a:after{
@@ -114,9 +130,11 @@ a{
 
 .member input[type=button],
 .member input[type=submit]{
-    background-color: #b29f9f;
-    color:#fff
+    background-color: #d56dff;
+    color:#fff;
+    border-radius: 5px;
 }
+
 
 
 

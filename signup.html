@@ -47,20 +47,32 @@
         <p><h3 class="title2">회원 기본정보 입력</h3></p>
         <div class="member">
             <!-- 아이디 입력 -->
-            <h4 class="list">아이디<span id="idError"></span></h4>
+            <h4 class="list">아이디</h4>
             <span class="box int_id" ><input type="text" placeholder="4~15자리 이내의 영문과 숫자로만 입력" id="id" class="int check" maxlength="15" required></span>
             <!-- 비밀번호 입력 -->
-            <h4 class="list">비밀번호<span id="pwError"></span></h4>
+            <h4 class="list">비밀번호</h4>
             <span class="box int_id"><input class="userpw" type="password" placeholder="8자리 이상 사용" id="pw" class="int check" maxlength="15" required></span>
             <!-- 비밀번호 재확인 입력 -->
-            <h4 class="list">비밀번호 재확인<span id="pwCheckError"></span></h4>
+            <h4 class="list">비밀번호 재확인</h4>
             <span class="box int_id"><input class="userpw-confirm" type="password" id="pwCheck" class="int check" maxlength="15"></span>
             <!-- 성명 입력 -->
-            <h4 class="list">성명<span id="nameError"></span></h4>
+            <h4 class="list">성명</h4>
             <span class="box int_id"><input type="text" id="name" class="int check" maxlength="20"></span>
             <!-- 전화번호 입력 -->
-            <h4 class="list">전화번호("-" 제외)<span id="phoneNumError"></span></h4>
+            <h4 class="list">전화번호("-" 제외)</h4>
             <span class="box int_id"><input type="text" id="phoneNum" class="int check" maxlength="11"></span>
+            <!-- 이메일 입력 -->
+            <h4 class="list">이메일</h4>
+            <span class="box int_id d-flex">
+            <input type="tel" id="user_email" maxlength="11">
+            <div class="m-1"></div> <!-- 칸 사이 공백 -->
+            <select name="user_email2">
+                <option value="naver">@naver.com</option>
+                <option value="gmail">@gmail.com</option>
+                <option value="daum">@daum.net</option>
+            </select>
+        </span>
+            <p></p> <!-- 공백  -->
             <!-- 가입하기 버튼 -->
             <input type="submit" value="가입하기">
         </div>
@@ -75,44 +87,6 @@
         </div>
         <span><a href="#none">OOO Corp.</a></span>
     </div>
-
-
-
-
-
-
-
-
-    <!-- 사이드바 -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">사이드바</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <!-- 사이드바 내용 -->
-            <section class="login">
-                <h2>LOGIN</h2>
-                <p class="p">로그인을 하시면 더욱 편리하게 이용하실 수 있습니다.</p>
-                <ul>
-                    <li><input type="text" placeholder="아이디" title="아이디입력"></li>
-                    <li><input type="password" placeholder="비밀번호" title="비밀번호입력"></li>
-                    <li><button>로그인</button></li>
-                    <li><input type="checkbox" id="chk_log"><label for="chk_log">로그인 상태 유지</label></li>
-                </ul>
-                <div>
-                    <ul>
-                        <li><a href="">아이디 찾기</a></li>
-                        <li><a href="">비밀번호 찾기</a></li>
-                        <li><a href="">회원가입</a></li>
-                    </ul>
-                </div>
-            </section>
-
-        </div>
-    </div>
-
-
 
 </div>
 </body>
