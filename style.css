@@ -43,10 +43,6 @@ body {
     padding: 10px;
 }
 
-.margin-left-10{
-    margin-left: 10px;
-}
-
 #detailsModalLabel {
     display: none;
 }
@@ -223,21 +219,6 @@ ul{
     background: white;
     margin: 0;
 }
-
-
-.rangeDropdown{
-    background-color: #d56dff;
-    padding: 10px 10px 20px 10px;
-}
-
-.rangeDropdownBtn{
-    margin-left: 10px;
-    padding-left: 10px;
-    width: 140px;
-    height: 30px;
-    font-size: 12px;
-}
-
 
 .section_search #destinationInput{
     border-radius: 10px;

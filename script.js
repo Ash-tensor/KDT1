@@ -116,3 +116,10 @@ window.addEventListener('load', function() {
         document.getElementById('id8a7fe3873ef63').style.display = 'block';
     }, 1500);
 });
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('id8a7fe3873ef63').style.display = 'block';
+    }, 1500);
+});
