@@ -10,6 +10,12 @@
     font-style: normal;
 }
 
+.button-purple {
+    background-color: mediumpurple;
+    border-color: mediumpurple;
+    color: white;
+}
+
 body {
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 400;
@@ -176,14 +182,23 @@ ul{
 
 }
 
+.gradation-background {
+    background: linear-gradient(90deg, mediumpurple, hotpink);
+}
 
 .section_search {
     padding: 30px 20px;
     /*background-color: #c738ff;*/
-    background-color: #d56dff;
+
+    /*for gradation test*/
+
     position: relative;
     padding-bottom: 10px;
 
+}
+#cardSection {
+    background: white;
+    margin: 0;
 }
 
 .section_search #destinationInput{
@@ -224,7 +239,7 @@ ul{
 }
 
 .rangeDropdown{
-    background-color: #d56dff;
+    /*background-color: #d56dff;*/
     padding: 10px 10px 20px 10px;
 }
 

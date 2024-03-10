@@ -71,78 +71,73 @@
 
                 <!--목적지 검색창-->
                 <!--form요소의 기본 enter키 이벤트때문에 form을 div로 변경함-->
-                <div class="section_search">
+                <div class="gradation-background">
+                    <div class="section_search">
+                        <input type="text" id="destinationInput" placeholder="목적지 검색">
+                        <button type="button" onclick="searchParking()" id="searchButton"></button>
 
-                    <!--select id="distanceOption">
-                        <option value="100">100m</option>
-                        <option value="500">500m</option>
-                        <option value="1000">1km</option>
-                         //거리 범위제한을 둘수있음.
-                    </select>-->
-                    <input type="text" id="destinationInput" placeholder="목적지 검색">
-                    <button type="button" onclick="searchParking()" id="searchButton"></button>
-
-                </div>
-
-<!--                드롭다운 버튼 메뉴-->
-
-                <div class="rangeDropdown margin-left-10" id="rangeDropdown">
-                    <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="distance" data-bs-toggle="dropdown" aria-expanded="false">현재 위치와의 거리
-                    </button>
-                    <ul class="dropdown-menu" >
-                        <li><a class="dropdown-item" href="#">100m</a></li>
-                        <li><a class="dropdown-item" href="#">500m</a></li>
-                        <li><a class="dropdown-item" href="#">1000m</a></li>
-                        <li><a class="dropdown-item" href="#">all</a></li>
-                    </ul>
-                    <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="ticket" data-bs-toggle="dropdown" aria-expanded="false">이용권
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">유료</a></li>
-                        <li><a class="dropdown-item" href="#">무료</a></li>
-                        <li><a class="dropdown-item" href="#">all</a></li>
-                    </ul>
-                    <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="parkingSpaces" data-bs-toggle="dropdown" aria-expanded="false">남은 주차면
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">존재 O</a></li>
-                        <li><a class="dropdown-item" href="#">all</a></li>
-
-                    </ul>
-                </div>
-
-<!--                드롭다운 버튼 메뉴-->
-
-
-
-                <div id="cardSection" class="row flex-nowrap overflow-auto">
-                    <div class="card col-auto" style="width: 15rem;">
-                        <img src="./asset/parking-1.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">종로타워 주차장</h5>
-                            <p class="card-text">종로구 종로 51</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
                     </div>
 
-                    <div class="card col-auto" style="width: 15rem;">
-                        <img src="./asset/parking-2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+    <!--                드롭다운 버튼 메뉴-->
+
+                    <div class="rangeDropdown margin-left-10" id="rangeDropdown">
+                        <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="distance" data-bs-toggle="dropdown" aria-expanded="false">현재 위치와의 거리
+                        </button>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item" href="#">100m</a></li>
+                            <li><a class="dropdown-item" href="#">500m</a></li>
+                            <li><a class="dropdown-item" href="#">1000m</a></li>
+                            <li><a class="dropdown-item" href="#">all</a></li>
+                        </ul>
+                        <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="ticket" data-bs-toggle="dropdown" aria-expanded="false">이용권
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">유료</a></li>
+                            <li><a class="dropdown-item" href="#">무료</a></li>
+                            <li><a class="dropdown-item" href="#">all</a></li>
+                        </ul>
+                        <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="parkingSpaces" data-bs-toggle="dropdown" aria-expanded="false">남은 주차면
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">존재 O</a></li>
+                            <li><a class="dropdown-item" href="#">all</a></li>
+
+                        </ul>
                     </div>
 
-                    <div class="card col-auto" style="width: 15rem;">
-                        <img src="./asset/parking-3.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+    <!--                드롭다운 버튼 메뉴-->
 
+
+
+                    <div id="cardSection" class="row flex-nowrap overflow-auto">
+                        <div class="card col-auto" style="width: 15rem;">
+                            <img src="./asset/parking-1.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">종로타워 주차장</h5>
+                                <p class="card-text">종로구 종로 51</p>
+                                <a href="#" class="btn btn-primary button-purple">Go somewhere</a>
+                            </div>
+                        </div>
+
+                        <div class="card col-auto" style="width: 15rem;">
+                            <img src="./asset/parking-2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary button-purple">Go somewhere</a>
+                            </div>
+                        </div>
+
+                        <div class="card col-auto" style="width: 15rem;">
+                            <img src="./asset/parking-3.jpeg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary button-purple">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
 
