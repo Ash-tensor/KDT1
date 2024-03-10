@@ -218,7 +218,6 @@ div .page-title h3 {
     background-color: #2980b9;
 }
 
-.pagination{
-    display: flex;
-    justify-content: center;
+#pagination{
+    text-align: center;
 }
