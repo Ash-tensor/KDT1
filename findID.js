@@ -1,13 +1,12 @@
-$('#verification-method').on('change', function() {
-    var method = $(this).val();
-
-    if (method === 'phone') {
-        $('#phone-verification').show();
-        $('#email-verification').hide();
-    } else if (method === 'email') {
-        $('#email-verification').show();
-        $('#phone-verification').hide();
-    } else {
-        $('#phone-verification, #email-verification').hide();
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('input[name="verificationMethod"]').forEach(function(elem) {
+        elem.addEventListener("change", function() {
+            var value = this.value;
+            if (value === "email") {
+                document.getElementById("emailVerificationContent").style.display = "block";
+            } else {
+                document.getElementById("emailVerificationContent").style.display = "none";
+            }
+        });
+    });
 });
