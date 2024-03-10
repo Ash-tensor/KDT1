@@ -5,50 +5,79 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/17448c044c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup.css">
     <meta charset="UTF-8">
     <title>회원 탈퇴</title>
 </head>
 <body>
+<!--네비게이션 바 부분-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./asset/6.PNG" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+            로고가 여기 들어갑니다
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">홈</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">공지사항</a>
+                </li>
+                <li class="nav-item">
+                    <!--마이페이지 관련 사이드바를 여는 버튼-->
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        개인화 메뉴
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--헤더 부분-->
 <div class="gray-box">
     <h4 class="header">회원 탈퇴<button class="left-arrow" id="leftArrow" ><i class="fa-solid fa-chevron-left"></i></button></h4>
 </div>
 <div class="gray-partition"></div>
-<form method="get" action="">
-    <table>
-        <tr>
-            <td>아이디 입력</td></tr>
-        <tr>
-            <td><input type="text" class="gray-input" name="user_id"></td>
-        </tr>
-        <tr>
-            <td>비밀번호 입력</td>
-        </tr>
-        <tr>
-            <td><input type="password" class="gray-input" name="user_pw" placeholder="  사용 중인 비밀번호를 입력해주세요."></td>
-        </tr>
-        <tr>
-            <td>무엇이 불편하셨나요?</td>
-        </tr>
-        <tr>
-            <td>
-                <select class="gray-input" name="user_quit_reason">
-                    <option value="" disabled selected>&nbsp;&nbsp;탈퇴 사유는 제품 개선에 큰 도움이 됩니다.</option>
-                    <option value="">&nbsp;&nbsp;이용이 불편해서</option>
-                    <option value="">&nbsp;&nbsp;다른 앱이 더 좋아서</option>
-                    <option value="">&nbsp;&nbsp;사용 빈도가 낮아서</option>
-                    <option value="">&nbsp;&nbsp;기타</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td class="text-center">
-                <br>
-                <input class="button" type="submit" value="탈퇴하기">
-            </td>
-        </tr>
-    </table>
-</form>
-<div class="gray-partition2"></div>
+<!--회원 탈퇴(하얀색 박스) 부분-->
+<div id="wrap3">
+    <div class="member">
+        <!-- 아이디 입력 -->
+        <h5 class="list">아이디 입력</h5>
+        <span class="box int_id" ><input type="text" id="user_id" maxlength="15"></span>
+        <!-- 비밀번호 입력 -->
+        <h5 class="list">비밀번호 입력</h5>
+        <span class="box int_id"><input type="password" id="user_pw" class="userpw" placeholder="  사용 중인 비밀번호를 입력해주세요." maxlength="15"></span>
+        <!-- 탈퇴 사유 -->
+        <h5 class="list">무엇이 불편하셨나요?</h5>
+        <span class="box int_id">
+            <select name="user_quit_reason">
+                <option value="" disabled selected>&nbsp;&nbsp;탈퇴 사유는 제품 개선에 큰 도움이 됩니다.</option>
+                <option value="">&nbsp;&nbsp;이용이 불편해서</option>
+                <option value="">&nbsp;&nbsp;다른 앱이 더 좋아서</option>
+                <option value="">&nbsp;&nbsp;사용 빈도가 낮아서</option>
+                <option value="">&nbsp;&nbsp;기타</option>
+            </select>
+        </span>
+        <!-- 탈퇴하기 버튼 -->
+        <p></p> <!-- 공백  -->
+        <input type="submit" class="button" value="탈퇴하기">
+    </div>
+</div>
+<!--footer 부분-->
+<div class="member-footer">
+    <div>
+        <a href="#none">이용약관</a>
+        <a href="#none">개인정보처리방침</a>
+        <a href="#none">책임의 한계와 법적고지</a>
+        <a href="#none">회원정보 고객센터</a>
+    </div>
+    <span><a href="#none">OOO Corp.</a></span>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
