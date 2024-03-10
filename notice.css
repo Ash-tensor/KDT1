@@ -30,12 +30,10 @@ div .page-title h3 {
     max-width: 564px;
 }
 #board-search .search-window .search-wrap input {
-    margin-left: 10px;
-    margin-right: 10px; /* 여백 추가 */
-
     height: 40px;
     width: 100%;
     font-size: 14px;
+    margin-left: 15px;
     padding: 7px 14px;
     border: 1px solid #ccc;
 }
@@ -49,11 +47,18 @@ div .page-title h3 {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 100px;
-
+    width: 108px;
 
     padding: 0;
     font-size: 16px;
+}
+
+.noticeDropdownBtn{
+    width: 120px;
+    height: 40px;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    background-color: white;
 }
 
 .blind {
@@ -111,9 +116,10 @@ div .page-title h3 {
     text-align: left;
 }
 
+
+
 .searchBtn {
     display: inline-block;
-
     padding: 0 30px;
     font-size: 10px;
     font-weight: 400;
@@ -212,16 +218,6 @@ div .page-title h3 {
     background-color: #2980b9;
 }
 
-.pagination{
-    display: flex;
-    justify-content: center;
-}
-
-.noticeDropdown{
-    border-radius: 0;
-    border: 1px solid #ccc;
-    background-color: white;
-    height: 40px;
-    width: 120px;
-
+#pagination{
+    text-align: center;
 }
