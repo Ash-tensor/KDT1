@@ -182,3 +182,26 @@ window.onload = function() {
     }
 };
 
+// 거리 옵션을 선택했을 때
+document.querySelectorAll('#rangeDropdown ul')[0].addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('distance').innerText = event.target.innerText;
+});
+
+// 이용권 옵션을 선택했을 때
+document.querySelectorAll('#rangeDropdown ul')[1].addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('ticket').innerText = event.target.innerText;
+});
+
+// 남은 주차면 옵션을 선택했을 때
+document.querySelectorAll('#rangeDropdown ul')[2].addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('parkingSpaces').innerText = event.target.innerText;
+});
+
+function changeButtonText(text) {
+    document.getElementById("noticeRange").textContent = text;
+}
+
+

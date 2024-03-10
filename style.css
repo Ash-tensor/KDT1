@@ -7,6 +7,10 @@
     padding: 10px;
 }
 
+.margin-left-10{
+    margin-left: 10px;
+}
+
 #detailsModalLabel {
     display: none;
 }
@@ -156,12 +160,27 @@ ul{
 
 
 .section_search {
-    padding: 30px 20px;
+    padding: 30px 20px 5px 20px;
     /*background-color: #c738ff;*/
     background-color: #d56dff;
     position: relative;
 
 }
+
+
+.rangeDropdown{
+    background-color: #d56dff;
+    padding: 10px 10px 20px 10px;
+}
+
+.rangeDropdownBtn{
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 140px;
+    height: 30px;
+    font-size: 12px;
+}
+
 
 .section_search #destinationInput{
     border-radius: 10px;
@@ -427,3 +446,5 @@ select option[value=""][disabled] {
     color: #9a55b7;
     /*color: #d56dff;*/
 }
+
+
