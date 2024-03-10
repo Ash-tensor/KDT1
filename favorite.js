@@ -98,11 +98,11 @@ window.addEventListener('load', function() {
         var parkingName = parking.name;
         var parkingAddress = parking.address;
 
-        // <div class="gray-box2">
+        // <div class="gray-box2 bg-white">
         var div = document.createElement('div');
-        div.className = 'gray-box2';
+        div.className = 'gray-box2 bg-white';
 
-        // <button class="minus" onclick="removeElement()"><i class="fa-solid fa-circle-minus"></i></button>
+        // <button class="minus" id="minusButton"><i class="fa-solid fa-circle-minus"></i></button>
         var button = document.createElement('button');
         button.className = 'minus';
         button.id = 'minusButton';
