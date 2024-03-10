@@ -26,6 +26,14 @@ body {
     background-color: #f8f9fa;
 }
 
+.navigation-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: #9a55b7 1px solid;
+}
+
 .no-padding {
     padding-left: 0;
     padding-right: 0;
@@ -55,9 +63,20 @@ body {
     color: black;
 }
 
+.forecast-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 220px;
+}
+
+card-left {
+/*padding-left: 5px;*/
+}
 
 .outer-border {
-    border: 1px solid #000;
+    border: 1px solid #9a55b7;
 }
 
 .hieght-100 {
@@ -481,4 +500,24 @@ select option[value=""][disabled] {
 #dark-purple {
     color: #9a55b7;
     /*color: #d56dff;*/
+}
+
+
+.spinner-border {
+    position: relative;
+}
+
+#id8a7fe3873ef63 {
+    display: none;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
