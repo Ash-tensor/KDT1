@@ -77,7 +77,9 @@ function showDetails(){
     }
     var parkingProgress = Math.round((searchResults[currentIndex][4] / searchResults[currentIndex][3]) * 100);
 
-    detailsModalBody.innerHTML = "<h3>" + searchResults[currentIndex][0] + " <span class='badge text-bg-secondary'> " + parkingText + "</span></h3>" +
+    detailsModalBody.innerHTML = "<h3>" + searchResults[currentIndex][0] + " <span class='badge text-bg-secondary'> " + parkingText + "</span> " +
+        "<button id='bookmark-button' class='btn btn-outline-primary'><i class='bi bi-bookmark-star-fill'></i></button> " +
+        "<button id='alarm-button' class='btn btn-outline-primary'><i class='bi bi-alarm'></i></button> </h3>" +
         "<div class='progress'>" +
         "<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' style='width: " + parkingProgress + "%;' aria-valuenow='" + parkingProgress + "' aria-valuemin='0' aria-valuemax='100'>" + parkingProgress + "%</div>" +
         "</div>" +
@@ -156,6 +158,16 @@ function showDetails(){
         });
     });
     detailsModal.show();
+    var alarmButton = document.getElementById('alarm-button');
+    alarmButton.removeEventListener('click', alarmButtonClicked);
+    alarmButton.addEventListener('click', alarmButtonClicked);
+
+    var bookmarkButton = document.getElementById('bookmark-button');
+    bookmarkButton.removeEventListener('click', bookmarkButtonClicked);
+    bookmarkButton.removeEventListener('click', saveFavoriteParkingInfoToLocalStorage);
+    bookmarkButton.addEventListener('click', bookmarkButtonClicked);
+    bookmarkButton.addEventListener('click', saveFavoriteParkingInfoToLocalStorage);
+
 }
 
 // 아마 이건 없어도 될것같긴한데 일단 놔둠
@@ -269,4 +281,24 @@ function changeButtonText(text) {
     document.getElementById("noticeRange").textContent = text;
 }
 
+function alarmButtonClicked() {
+    var alarmButton = document.getElementById('alarm-button');
+    if (alarmButton.classList.contains('btn-outline-primary')) {
+        alarmButton.classList.remove('btn-outline-primary');
+        alarmButton.classList.add('btn-primary');
+    } else {
+        alarmButton.classList.remove('btn-primary');
+        alarmButton.classList.add('btn-outline-primary');
+    }
+}
 
+function bookmarkButtonClicked() {
+    var bookmarkButton = document.getElementById('bookmark-button');
+    if (bookmarkButton.classList.contains('btn-outline-primary')) {
+        bookmarkButton.classList.remove('btn-outline-primary');
+        bookmarkButton.classList.add('btn-primary');
+    } else {
+        bookmarkButton.classList.remove('btn-primary');
+        bookmarkButton.classList.add('btn-outline-primary');
+    }
+}
