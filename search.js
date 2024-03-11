@@ -19,6 +19,7 @@ function searchParking(){
 
 
     document.getElementById('cardSection').style.display = "none";
+    document.getElementById('forecasting').style.display = "none";
 
     if (searchResults.length === 0) {
         document.getElementById('parkingResults').style.display = "block";
@@ -66,6 +67,10 @@ function showDetails(){
     var parkingText;
     if (searchResults[currentIndex][4] === 0) {
         parkingText = "불가능";
+        var noParkingModal = new bootstrap.Modal(document.getElementById('noParkingModal'), {});
+        setTimeout(function() {
+            noParkingModal.show();
+        }, 1000);
     }
     else {
         parkingText = "가능!";
@@ -153,7 +158,7 @@ function showDetails(){
     detailsModal.show();
 }
 
-// 페이지가 로드될 때 cardSection의 내용을 초기화하는 함수
+// 아마 이건 없어도 될것같긴한데 일단 놔둠
 window.onload = function() {
     searchResults = [["주차장 A", "100m", "서울시 강남구 역삼동 123-45", 100, 55, 5],
         //주차장 B는 꽉 차있는 시나리오 설명을 위해 남은 주차면수 0으로 설정
@@ -179,6 +184,89 @@ window.onload = function() {
             주차 가능 면: ${parkingInfo[4]}<br>
             평균 대기 시간: ${parkingInfo[5]}분
         `;
+
+        // 버튼 수정
+
+
     }
 };
+
+// 페이지가 로드될 때 cardSection의 내용을 초기화하는 함수
+window.onload = function() {
+    searchResults = [["주차장 A", "100m", "서울시 강남구 역삼동 123-45", 100, 55, 5],
+        ["주차장 B", "200m", "서울시 강남구 논현동 678-90", 150, 0, 13],
+        ["주차장 C", "200m", "서울시 강남구 논현동 678-90", 150, 33, 7],
+        ["주차장 D", "200m", "서울시 강남구 논현동 678-90", 150, 11, 8]];
+
+    var cardSection = document.getElementById("cardSection");
+    var cards = cardSection.getElementsByClassName("card");
+
+    for (var i = 0; i < cards.length && i < searchResults.length; i++) {
+        var card = cards[i];
+        var button = card.getElementsByClassName("btn")[0];
+        button.className = "btn btn-primary btn-purple";
+
+        button.removeAttribute("disabled");
+
+        button.textContent = "상세정보 확인";
+
+        var parkingInfo = searchResults[i];
+
+        var cardTitle = card.getElementsByClassName("card-title")[0];
+        var cardText = card.getElementsByClassName("card-text")[0];
+
+        cardTitle.textContent = parkingInfo[0];
+        cardText.innerHTML = `
+            거리: ${parkingInfo[1]}<br>
+            주소: ${parkingInfo[2]}<br>
+            전체 주차면: ${parkingInfo[3]}<br>
+            주차 가능 면: ${parkingInfo[4]}<br>
+            평균 대기 시간: ${parkingInfo[5]}분
+        `;
+
+        // 카드에 클릭 이벤트 리스너 추가
+        card.addEventListener("click", function(index) {
+            return function() {
+                // 클릭된 주차장의 인덱스를 저장
+                currentIndex = index;
+                // 자세한 정보 표시
+                showDetails(currentIndex);
+            };
+        }(i));
+    }
+};
+
+// 주차장 카드를 선택해도 나올 수 있도록 매개변수를 위한 함수를 하나 더 생성
+function showDetailsWithAnimation(index) {
+    // showDetails 함수를 호출
+    showDetails(index);
+
+    // 추가적인 애니메이션을 적용
+    // 예를 들어, detailsModalBody 요소에 fade-in 애니메이션을 적용
+    var detailsModalBody = document.getElementById('detailsModalBody');
+    detailsModalBody.style.animation = 'fadeIn 1s';
+}
+
+// 거리 옵션을 선택했을 때
+document.querySelectorAll('#rangeDropdown ul')[0].addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('distance').innerText = event.target.innerText;
+});
+
+// 이용권 옵션을 선택했을 때
+document.querySelectorAll('#rangeDropdown ul')[1].addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('ticket').innerText = event.target.innerText;
+});
+
+// 남은 주차면 옵션을 선택했을 때
+document.querySelectorAll('#rangeDropdown ul')[2].addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('parkingSpaces').innerText = event.target.innerText;
+});
+
+function changeButtonText(text) {
+    document.getElementById("noticeRange").textContent = text;
+}
+
 

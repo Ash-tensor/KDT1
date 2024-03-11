@@ -68,6 +68,10 @@ function showOffcanvas() {
     }
 }
 
+// 주차장 검색 팝업창
+function showPopup() {
+    window.open("search-parkinglot.html", "주차장 검색", "width=500, height=500, left=100, top=50");
+}
 
 
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -114,4 +118,19 @@ $(document).on('click', 'a[href="findID.html"]', function(event) {
 $(document).on('click', 'a[href="findpwd.html"]', function(event) {
     event.preventDefault(); // 기본 이벤트 방지
     window.location.href = "findpwd.html"; // 페이지 이동
+});
+
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('id8a7fe3873ef63').style.display = 'block';
+    }, 1500);
+});
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('id8a7fe3873ef63').style.display = 'block';
+    }, 1500);
 });

@@ -7,9 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/17448c044c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./signup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Title</title>
@@ -17,7 +19,9 @@
 </head>
 <body>
 <div>
-    <nav class="navbar navbar-expand-lg no-padding bg-body-tertiary">
+<!--    네비게이션 바-->
+    <div id="navbar-placeholder" style="height: 60px;"></div>
+    <nav class="navbar navigation-fixed navbar-expand-lg no-padding bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" id="navbar-txt" href="#">
                 <img src="./asset/6-removebg.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
@@ -34,17 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="notice.html">공지사항</a>
                     </li>
-                    <!--                <li class="nav-item dropdown">-->
-                    <!--                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-                    <!--                        Dropdown-->
-                    <!--                    </a>-->
-                    <!--                    <ul class="dropdown-menu">-->
-                    <!--                        <li><a class="dropdown-item" href="#">Action</a></li>-->
-                    <!--                        <li><a class="dropdown-item" href="#">Another action</a></li>-->
-                    <!--                        <li><hr class="dropdown-divider"></li>-->
-                    <!--                        <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-                    <!--                    </ul>-->
-                    <!--                </li>-->
+
                     <li class="nav-item">
                     <!--마이페이지 관련 사이드바를 여는 버튼-->
                         <button class="btn btn-purple" id="loginOrMypageButton" type="button" onclick="showOffcanvas()">
@@ -54,6 +48,7 @@
             </div>
         </div>
     </nav>
+<!--    네비게이션 바-->
 
     <div class="container-fluid no-padding hieght-100">
         <div class="row">
@@ -62,47 +57,104 @@
 
                 <!--목적지 검색창-->
                 <!--form요소의 기본 enter키 이벤트때문에 form을 div로 변경함-->
-                <div class="section_search">
+                <div class="gradation-background">
+                    <div class="section_search">
+                        <input type="text" id="destinationInput" placeholder="목적지 검색">
+                        <button type="button" onclick="searchParking()" id="searchButton"></button>
 
-                    <!--select id="distanceOption">
-                        <option value="100">100m</option>
-                        <option value="500">500m</option>
-                        <option value="1000">1km</option>
-                         //거리 범위제한을 둘수있음.
-                    </select>-->
-                    <input type="text" id="destinationInput" placeholder="목적지 검색">
-                    <button type="button" onclick="searchParking()" id="searchButton"></button>
-
-                </div>
-
-
-                <div id="cardSection" class="row flex-nowrap overflow-auto">
-                    <div class="card col-auto" style="width: 15rem;">
-                        <img src="./asset/parking-1.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">종로타워 주차장</h5>
-                            <p class="card-text">종로구 종로 51</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
                     </div>
 
-                    <div class="card col-auto" style="width: 15rem;">
-                        <img src="./asset/parking-2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+    <!--                드롭다운 버튼 메뉴-->
+
+                    <div class="rangeDropdown margin-left-10" id="rangeDropdown">
+                        <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="distance" data-bs-toggle="dropdown" aria-expanded="false">현재 위치와의 거리
+                        </button>
+                        <ul class="dropdown-menu" >
+                            <li><a class="dropdown-item" href="#">100m</a></li>
+                            <li><a class="dropdown-item" href="#">500m</a></li>
+                            <li><a class="dropdown-item" href="#">1000m</a></li>
+                            <li><a class="dropdown-item" href="#">all</a></li>
+                        </ul>
+                        <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="ticket" data-bs-toggle="dropdown" aria-expanded="false">이용권
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">유료</a></li>
+                            <li><a class="dropdown-item" href="#">무료</a></li>
+                            <li><a class="dropdown-item" href="#">all</a></li>
+                        </ul>
+                        <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="parkingSpaces" data-bs-toggle="dropdown" aria-expanded="false">남은 주차면
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">존재 O</a></li>
+                            <li><a class="dropdown-item" href="#">all</a></li>
+
+                        </ul>
                     </div>
 
-                    <div class="card col-auto" style="width: 15rem;">
-                        <img src="./asset/parking-3.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <!--                드롭다운 버튼 메뉴-->
+
+<!--                    날씨 위젯-->
+                    <div id="forecasting" class="forecast-holder">
+                        <div class="spinner-border text-primary" role="status" id="loadingSpinner">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
+
+                        <div id="id8a7fe3873ef63" a='{"t":"r","v":"1.2","lang":"ko","locs":[873],"ssot":"c","sics":"ds","cbkg":"#FFFFFF","cfnt":"#000000","codd":"#FFFFFF","cont":"#000000d4"}'>날씨 데이터 소스: <a href="https://sharpweather.com/weather_seoul/30_days/">weather forecast Seoul 30 days</a></div>
+                        <script async src="https://static1.sharpweather.com/widgetjs/?id=id8a7fe3873ef63"></script>
                     </div>
+                    <!--                    날씨 위젯-->
+
+                    <div id="cardSection" class="row flex-nowrap overflow-auto">
+                        <div class="card-left card col-auto" style="width: 15rem;">
+                            <img src="./asset/parking-1.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title placeholder-glow">
+                                    <span class="placeholder col-6"></span>
+                                </h5>
+                                <p class="card-text placeholder-glow">
+                                    <span class="placeholder col-7"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-6"></span>
+                                    <span class="placeholder col-8"></span>
+                                </p>
+                                <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+                            </div>
+                        </div>
+
+                        <div class="card col-auto" style="width: 15rem;">
+                            <img src="./asset/parking-2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title placeholder-glow">
+                                    <span class="placeholder col-6"></span>
+                                </h5>
+                                <p class="card-text placeholder-glow">
+                                    <span class="placeholder col-7"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-6"></span>
+                                    <span class="placeholder col-8"></span>
+                                </p>
+                                <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+                            </div>
+                        </div>
+
+                        <div class="card col-auto" style="width: 15rem;">
+                            <img src="./asset/parking-3.jpeg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title placeholder-glow">
+                                    <span class="placeholder col-6"></span>
+                                </h5>
+                                <p class="card-text placeholder-glow">
+                                    <span class="placeholder col-7"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-4"></span>
+                                    <span class="placeholder col-6"></span>
+                                    <span class="placeholder col-8"></span>
+                                </p>
+                                <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+                            </div>
+                        </div>
 
                 </div>
 
@@ -146,26 +198,26 @@
 
     <!--로그인 사이드바-->
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="loginOffcanvas" aria-labelledby="loginOffcanvasLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="loginOffcanvasLabel">사이드바</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas offcanvas-start gray-bg" tabindex="-1" id="loginOffcanvas" aria-labelledby="loginOffcanvasLabel">
+        <div>
+            <button type="button" class="btn-close text-reset right-array mt-4 me-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body pt-0">
             <div>
                 <section class="login">
-                    <h2>LOGIN</h2>
-                    <p class="p">로그인을 하시면 더욱 편리하게 이용하실 수 있습니다.</p>
+                    <h2 class="gugi-regular" id="dark-purple">LOGIN</h2>
+                    <p></p> <!--개행-->
                     <ul>
-                        <li><input type="text" placeholder="아이디" title="아이디입력"></li>
-                        <li><input type="password" placeholder="비밀번호" title="비밀번호입력"></li>
-                        <li><button id="loginButton">로그인</button></li>
+                        <li><input type="text" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
+                        <li><input type="password" class="border-radius" placeholder=" 비밀번호" title="비밀번호입력"></li>
                         <li><input type="checkbox" id="chk_log"><label for="chk_log">로그인 상태 유지</label></li>
+                        <li><button id="loginButton">로그인</button></li>
                     </ul>
+                    <hr class="hr-width">
                     <div>
-                        <ul>
-                            <li><a href="findID.html">아이디 찾기</a></li>
-                            <li><a href="findpwd.html">비밀번호 찾기</a></li>
+                        <ul class="no-padding ms-sm-3">
+                            <li><a href="">아이디 찾기</a></li>
+                            <li><a href="">비밀번호 찾기</a></li>
                             <li><a href="signup.html">회원가입</a></li>
                         </ul>
                     </div>
@@ -176,7 +228,7 @@
 
     <!--마이페이지 사이드바-->
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="myPageOffcanvas" aria-labelledby="myPageOffcanvasLabel">
+    <div class="offcanvas offcanvas-start gray-bg" tabindex="-1" id="myPageOffcanvas" aria-labelledby="myPageOffcanvasLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title text-white" id="myPageOffcanvasLabel">마이페이지</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -186,16 +238,16 @@
                 <img class="user-profile" src="/asset/profile.png">
                 <p class="user-status">홍길동 <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></p>
             </div>
-            <div class="gray-box">
+            <div class="gray-box bg-white">
                 <p class="mb-auto">개인정보 수정<button class="right-arrow" onclick="location.href='user-info-modify.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
-            <div class="gray-box">
+            <div class="gray-box bg-white">
                 <p class="mb-auto">관심 주차장<button class="right-arrow" onclick="location.href='user-parkinglot.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
-            <div class="gray-box">
+            <div class="gray-box bg-white">
                 <p class="mb-auto">알림 설정<button class="right-arrow" onclick="location.href='user-alarm.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
-            <div class="gray-box">
+            <div class="gray-box bg-white">
                 <p class="mb-auto">회원 탈퇴<button class="right-arrow" onclick="location.href='user-quit.html'"><i class="fas fa-chevron-right"></i></button></p>
             </div>
         </div>
@@ -230,7 +282,26 @@
         </div>
     </div>
 
+<!--    주차공간이 없을때 뜨는 모달-->
 
+    <div class="modal fade" id="noParkingModal" tabindex="-1" aria-labelledby="noParkingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="noParkingModalLabel">주차 불가능</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    현재 이 주차장에는 주차 가능한 공간이 없습니다. 계산해 본 결과 평균적으로 15분 정도 기다리면 자리가 생길 수 있습니다. 알려드릴까요?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    주차공간이 없을때 뜨는 모달-->
 
 </div>
 

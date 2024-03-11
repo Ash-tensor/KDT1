@@ -57,10 +57,10 @@
             <h4 class="list">아이디<span id="idError"></span></h4>
             <span class="box int_id" ><input class="usrid" type="text" placeholder="4~15자리 이내의 영문과 숫자로만 입력" id="id" class="int check" maxlength="15" required></span>
             <!-- 비밀번호 입력 -->
-            <h4 class="list">비밀번호<span id="pwError"></span></h4>
+            <h4 class="list">비밀번호</h4>
             <span class="box int_id"><input class="userpw" type="password" placeholder="8자리 이상 사용" id="pw" class="int check" maxlength="15" required></span>
             <!-- 비밀번호 재확인 입력 -->
-            <h4 class="list">비밀번호 재확인<span id="pwCheckError"></span></h4>
+            <h4 class="list">비밀번호 재확인</h4>
             <span class="box int_id"><input class="userpw-confirm" type="password" id="pwCheck" class="int check" maxlength="15"></span>
             <!-- 성명 입력 -->
             <h4 class="list">이름<span id="nameError"></span></h4>
@@ -68,6 +68,20 @@
             <!-- 전화번호 입력 -->
             <h4 class="list">전화번호('-' 제외하고 입력)<span id="phoneNumError"></span></h4>
             <span class="box int_id"><input class="usrph" type="text" id="phoneNum" class="int check" maxlength="11"></span>
+            <h4 class="list">전화번호("-" 제외)</h4>
+            <span class="box int_id"><input type="text" id="phoneNum" class="int check" maxlength="11"></span>
+            <!-- 이메일 입력 -->
+            <h4 class="list">이메일</h4>
+            <span class="box int_id d-flex">
+            <input type="tel" id="user_email" maxlength="11">
+            <div class="m-1"></div> <!-- 칸 사이 공백 -->
+            <select name="user_email2">
+                <option value="naver">@naver.com</option>
+                <option value="gmail">@gmail.com</option>
+                <option value="daum">@daum.net</option>
+            </select>
+        </span>
+            <p></p> <!-- 공백  -->
             <!-- 가입하기 버튼 -->
             <input type="submit" value="가입하기">
         </div>
