@@ -67,7 +67,7 @@
                 <div class="container">
                     <div class="search-window">
                         <form action="">
-                            <div class="search-wrap">
+                            <div id="search-wrap" class="search-wrap">
                                 <div class= "noticeDropdown" id="noticeDropdown">
                                     <button class="btn  dropdown-toggle noticeDropdown" type="button" id="noticeBtn" data-bs-toggle="dropdown" aria-expanded="false">제목+내용
                                     </button>
@@ -97,7 +97,7 @@
             <!-- board list area -->
             <div id="board-list">
                 <div class="container">
-                    <table class="board-table">
+                    <table id="noticeV1" class="board-table">
                         <thead>
                         <tr>
                             <th scope="col" class="th-num">번호</th>
@@ -106,52 +106,90 @@
                             <th scope="col" class="th-views">조회수</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.5</td>
-                            <td>0</td>
+                        <tbody id="notices">
+                        <tr onclick="viewsPlus(); showNotice();">
+                            <td>6</td>
+                            <th><a href="#!">주차정보안내시스템 12.15(금) 19:00 ~ 23:00 이용 제한 안내</a></th>
+                            <td>2024.03.11</td>
+                            <td class="views">1</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
+                        <tr onclick="viewsPlus()">
+                            <td>5</td>
                             <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.5</td>
-                            <td>0</td>
+                            <td>2024.03.05</td>
+                            <td class="views">1</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
+                        <tr onclick="viewsPlus()">
+                            <td>4</td>
                             <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.5</td>
-                            <td>0</td>
+                            <td>2024.03.05</td>
+                            <td class="views">1</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
+                        <tr onclick="viewsPlus()">
+                            <td>3</td>
                             <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.5</td>
-                            <td>0</td>
+                            <td>2024.03.05</td>
+                            <td class="views">1</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
+                        <tr onclick="viewsPlus()">
+                            <td>2</td>
                             <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.5</td>
-                            <td>0</td>
+                            <td>2024.03.05</td>
+                            <td class="views">1</td>
                         </tr>
-                        <tr>
+                        <tr onclick="viewsPlus()">
                             <td>1</td>
                             <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.5</td>
-                            <td>1</td>
+                            <td>2024.03.05</td>
+                            <td class="views">1</td>
                         </tr>
                         </tbody>
                     </table>
+                    <!--클릭시 나타나는 클릭된 공지-->
+                    <table id="noticeV2" class="board-table">
+                        <thead>
+                        <tr>
+                        <th scope="col" class="no-title">[공지사항] 개인정보 처리방침 변경안내처리방침</th>
+                        <th scope="col" class="no-date">등록일:2024.03.11</th>
+                        <th scope="col" class="no-views">조회수:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>안녕하세요. 주차정보안내시스템 입니다.
+
+
+                                클라우드센터 서버 보안장비 교체로 인한 웹서비스 일시중지가 있을 예정이오며, 해당 시간에는 웹/앱서비스 사용이 제한됩니다.
+                                시스템 사용자분들께서는 이점 참고해주시길 바라며, 하기 일정 확인부탁드립니다.
+
+                                작업일정 :12.15(금) 19:00 ~ 23:00 (예정)
+                                정상화 : 23:00 이후 예정
+
+
+                                감사합니다</td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                    <!--전체공지 보기로 돌아가는 버튼-->
+                    <button class="backBtn btn-dark" id="backBtn" onclick="backFullNotice()">목록으로 돌아가기</button>
+
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <ul id="pagination" class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

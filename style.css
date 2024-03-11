@@ -10,6 +10,10 @@
     font-style: normal;
 }
 
+.margin-left-10{
+    margin-left: 10px;
+}
+
 body {
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 400;
@@ -178,11 +182,11 @@ ul{
 
 
 .section_search {
-    padding: 30px 20px;
+    padding: 30px 20px 5px 20px;
     /*background-color: #c738ff;*/
     background-color: #d56dff;
     position: relative;
-    padding-bottom: 10px;
+
 
 }
 
@@ -233,9 +237,9 @@ ul{
     border: 0;
     margin-left: 10px;
     padding-left: 10px;
-    width: 120px;
+    width: 140px;
     height: 30px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 

@@ -71,14 +71,8 @@
 
                 <!--목적지 검색창-->
                 <!--form요소의 기본 enter키 이벤트때문에 form을 div로 변경함-->
-                <div class="section_search">
+                <div class="section_search margin-left-10">
 
-                    <!--select id="distanceOption">
-                        <option value="100">100m</option>
-                        <option value="500">500m</option>
-                        <option value="1000">1km</option>
-                         //거리 범위제한을 둘수있음.
-                    </select>-->
                     <input type="text" id="destinationInput" placeholder="목적지 검색">
                     <button type="button" onclick="searchParking()" id="searchButton"></button>
 
@@ -93,20 +87,20 @@
                         <li><a class="dropdown-item" href="#">100m</a></li>
                         <li><a class="dropdown-item" href="#">500m</a></li>
                         <li><a class="dropdown-item" href="#">1000m</a></li>
-                        <li><a class="dropdown-item" href="#">all</a></li>
+                        <li><a class="dropdown-item" href="#">전체/</a></li>
                     </ul>
                     <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="ticket" data-bs-toggle="dropdown" aria-expanded="false">이용권
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">유료</a></li>
                         <li><a class="dropdown-item" href="#">무료</a></li>
-                        <li><a class="dropdown-item" href="#">all</a></li>
+                        <li><a class="dropdown-item" href="#">전체</a></li>
                     </ul>
                     <button class="btn btn-secondary dropdown-toggle rangeDropdownBtn" type="button" id="parkingSpaces" data-bs-toggle="dropdown" aria-expanded="false">남은 주차면
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">존재 O</a></li>
-                        <li><a class="dropdown-item" href="#">all</a></li>
+                        <li><a class="dropdown-item" href="#">존재O</a></li>
+                        <li><a class="dropdown-item" href="#">전체</a></li>
 
                     </ul>
                 </div>
@@ -148,7 +142,7 @@
 
 
 
-                <div class="section_searchResult">
+                <div class="section_searchResult margin-left-10">
                     <div id="totalResults"></div> <!-- 검색 결과 총 건수를 표시할 곳 -->
                     <div id="parkingResults">
                         <p id="searchPlaceholder">목적지를 검색하세요.</p>

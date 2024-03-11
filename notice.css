@@ -24,7 +24,7 @@ div .page-title h3 {
 
 #board-search .search-window .search-wrap {
     position: relative;
-    padding-right: 124px;
+    padding-right: 100px;
     margin: 0 auto;
     width: 80%;
     max-width: 564px;
@@ -224,4 +224,17 @@ div .page-title h3 {
     height: 40px;
     width: 120px;
 
+}
+
+#noticeV2 {
+    display: none;
+}
+
+#noticeV2 .no-title {
+    text-align: left;
+}
+
+.backBtn{
+display: none;
+    float: right;
 }
