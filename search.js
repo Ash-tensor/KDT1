@@ -67,6 +67,10 @@ function showDetails(){
     var parkingText;
     if (searchResults[currentIndex][4] === 0) {
         parkingText = "불가능";
+        var noParkingModal = new bootstrap.Modal(document.getElementById('noParkingModal'), {});
+        setTimeout(function() {
+            noParkingModal.show();
+        }, 1000);
     }
     else {
         parkingText = "가능!";
@@ -154,7 +158,7 @@ function showDetails(){
     detailsModal.show();
 }
 
-
+// 아마 이건 없어도 될것같긴한데 일단 놔둠
 window.onload = function() {
     searchResults = [["주차장 A", "100m", "서울시 강남구 역삼동 123-45", 100, 55, 5],
         //주차장 B는 꽉 차있는 시나리오 설명을 위해 남은 주차면수 0으로 설정
