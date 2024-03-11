@@ -186,3 +186,22 @@ function removeFavoriteParkingFromLocalStorage(name, address) {
         }
     }
 }
+
+// + 버튼의 DOM 객체를 가져옴
+const plusButton = document.getElementById("plusButton");
+
+// + 버튼을 누르면 주차장 검색 팝업창이 뜸
+plusButton.addEventListener("click", () => {
+    const popupWindow = window.open(
+        "search-parkinglot.html",
+        "주차장 검색",
+        "width=500, height=500, left=100, top=50"
+    );
+    // 팝업창을 닫으면 페이지가 새로고침되면서 관심 주차장이 표시됨
+    const popupInterval = setInterval(function () {
+        if (popupWindow.closed) {
+            clearInterval(popupInterval);
+            location.reload();
+        }
+    });
+});

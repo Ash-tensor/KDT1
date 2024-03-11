@@ -68,12 +68,6 @@ function showOffcanvas() {
     }
 }
 
-// 주차장 검색 팝업창
-function showPopup() {
-    window.open("search-parkinglot.html", "주차장 검색", "width=500, height=500, left=100, top=50");
-}
-
-
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
