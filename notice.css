@@ -218,6 +218,29 @@ div .page-title h3 {
     background-color: #2980b9;
 }
 
-#pagination{
-    text-align: center;
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.noticeDropdown{
+    border-radius: 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    height: 40px;
+    width: 120px;
+
+}
+
+#noticeV2 {
+    display: none;
+}
+
+#noticeV2 .no-title {
+    text-align: left;
+}
+
+.backBtn{
+    display: none;
+    float: right;
 }
