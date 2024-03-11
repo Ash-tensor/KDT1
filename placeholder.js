@@ -45,3 +45,63 @@ dropdownItems.forEach(item => {
 function changeButtonText(text) {
     document.getElementById("noticeBtn").textContent = text;
 }
+
+// 조회수 기능
+function viewsPlus() {
+    // 클릭된 tr 요소를 찾습니다.
+    var tr = event.target.closest('tr');
+
+    // 클릭된 tr 요소의 views 값을 가져옵니다.
+    var viewsElement = tr.querySelector('.views');
+    var views = parseInt(viewsElement.innerText);
+
+    // views 값을 1 증가시킵니다.
+    views += 1;
+
+    // 증가된 views 값을 다시 tr 요소의 views에 반영합니다.
+    viewsElement.innerText = views;
+}
+
+//공지 클릭시 클릭한 공지 내용이 펼쳐짐
+//제목 등록일: 조회수: /내용 /목록 보기 버튼
+function showNotice() {
+    // noticeV1 테이블 숨김 처리
+    var noticeV1Table = document.getElementById("noticeV1");
+    noticeV1Table.style.display = "none";
+
+    //검색창 숨김 처리
+    var searchWrap = document.getElementById("search-wrap");
+    searchWrap.style.display = "none";
+    //페이지네이션 숨김 처리
+    var pagination = document.getElementById("pagination");
+    pagination.style.display = "none";
+
+    // noticeV2 테이블 나타나게 처리
+    var noticeV2Table = document.getElementById("noticeV2");
+    noticeV2Table.style.display = "table";
+
+    //돌아가기 버튼
+    var backBtn = document.getElementById("backBtn");
+    backBtn.style.display="block";
+}
+
+function backFullNotice(){
+    // noticeV1 테이블 숨김 처리
+    var noticeV1Table = document.getElementById("noticeV1");
+    noticeV1Table.style.display = "table"
+
+    //검색창 숨김 처리
+    var searchWrap = document.getElementById("search-wrap");
+    searchWrap.style.display = "flex";
+
+    //페이지네이션 숨김 처리
+    var pagination = document.getElementById("pagination");
+    pagination.style.display = "flex";
+
+    // noticeV2 테이블 나타나게 처리
+    var noticeV2Table = document.getElementById("noticeV2");
+    noticeV2Table.style.display = "none";
+    //돌아가기 버튼
+    var backBtn = document.getElementById("backBtn");
+    backBtn.style.display="none";
+}
