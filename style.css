@@ -72,7 +72,7 @@ body {
 }
 
 card-left {
-/*padding-left: 5px;*/
+    /*padding-left: 5px;*/
 }
 
 .outer-border {
@@ -99,42 +99,61 @@ card-left {
     height: 100%;
 }
 
-/* --- login style.css ---*/
+/* --- 여기부터 login style.css입니다. ---*/
+
+/*--- 리스트 속성 ---*/
 ul{
     list-style:none;
 }
+
+/*--- 로그인 콘텐츠 속성 ---*/
 .login {
     width: 810px;
     position: absolute
 }
+
+/*--- login 글자 속성 ---*/
 .login h2 {
     font-size: 40px;
     color: #111;
 }
+
+/*--- 로그인 안내 글 속성 ---*/
 .p {
     border-bottom: 2px solid rgba(217, 217, 217, 0.9);
     height: 35px;
     margin-left: -11px;
     width: 394px;
 }
+
+/*--- 리스트 속성 ---*/
 .login > ul {
     padding: 0 0 0;
 }
+
+/*--- 박스, 버튼 속성 ---*/
 .login > ul li {
     padding: 0 0 12px;
 }
+
+/*--- 입력 박스 속성 ---*/
 .login > ul li input {
     width: 40%;
     height:38px;
 }
+
+/*--- placeholder 스타일 ---*/
 .login > ul li input::-webkit-input-placeholder {
     font-size: 16px;
     color: #9fa19f;
 }
+
+/*--- 체크박스 위치 ---*/
 .login > ul li input[type="checkbox"] {
     position: absolute;
     left: -3000%;
 }
+
 .login > ul li input[type="checkbox"] + label:before {
     content: "";
     display: inline-block;
@@ -146,12 +165,14 @@ ul{
     vertical-align: -3px;
 }
 
+/*--- 폰트 속성 ---*/
 .gugi-regular {
     font-family: "Gugi", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
+/*--- 네비게이션 속성 ---*/
 #navbar-txt {
     font-family: "Gugi", sans-serif;
     font-size: 30px;
@@ -160,14 +181,15 @@ ul{
     -webkit-text-fill-color: transparent;
 }
 
-
-
+/*--- 로그인 유지 체크박스 속성 ---*/
 .login > ul li input[type="checkbox"]:checked + label:before {
     background: url(./asset/7.png) no-repeat;
     border: none;
     background-position: center;
     background-size: contain;
 }
+
+/*--- 로그인하기 버튼 속성 ---*/
 .login button {
     width: 40%;
     height: 40px;
@@ -176,15 +198,19 @@ ul{
     border-radius: 5px;
     background: #d56dff;
     /*background: #534A99;*/
+    background: #d56dff;
     color: #fff;
 }
+
 .login div ul {
     display: flex;
     justify-content: left;
 }
+
 .login div ul li {
     padding: 0 10px;
 }
+
 .login div ul li a {
     font-size: 14px;
     color: #111;
