@@ -110,17 +110,6 @@ var myChart = new Chart(ctx, {
     }
 });
 
-$(document).on('click', 'a[href="findID.html"]', function(event) {
-    event.preventDefault(); // 기본 이벤트 방지
-    window.location.href = "findID.html"; // 페이지 이동
-});
-
-$(document).on('click', 'a[href="findpwd.html"]', function(event) {
-    event.preventDefault(); // 기본 이벤트 방지
-    window.location.href = "findpwd.html"; // 페이지 이동
-});
-
-
 window.addEventListener('load', function() {
     setTimeout(function() {
         document.getElementById('loadingSpinner').style.display = 'none';
