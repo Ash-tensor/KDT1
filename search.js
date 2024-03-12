@@ -3,8 +3,6 @@
 ->알림 설정 버튼을 누르면 표시가 된다.
 ->뒤로 가기 버튼을 누르면 자세한 정보가 사라지고 아까검색했던 주차정보들이 나옴
 */
-let searchResults = [];//주차장 검색 결과를 저장할 배열
-let currentIndex = -1; //현재 선택된 주차장의 인덱스
 function searchParking(){
     var destination = document.getElementById("destinationInput").value;
     //destination에 가까운 주차장을 검색결과를 받아옴->searchResults
@@ -65,6 +63,15 @@ function showDetails(){
     var detailsModalBody = document.getElementById("detailsModalBody");
     var parkingAvailable = searchResults[currentIndex][4] > 0 ? searchResults[currentIndex][4] : "현재 주차 불가능";
     var parkingText;
+    var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
+    var alarmParkingInfo = getAlarmInfoFromLocalStorage();
+    var isAlarm = alarmParkingInfo.some(function(parking) {
+        return parking.name === searchResults[currentIndex][0] && parking.address === searchResults[currentIndex][2];
+    });
+    var isFavorite = favoriteParkingInfo.some(function(parking) {
+        return parking.name === searchResults[currentIndex][0] && parking.address === searchResults[currentIndex][2];
+    });
+
     if (searchResults[currentIndex][4] === 0) {
         parkingText = "불가능";
         var noParkingModal = new bootstrap.Modal(document.getElementById('noParkingModal'), {});
@@ -157,16 +164,29 @@ function showDetails(){
             }
         });
     });
+
     detailsModal.show();
     var alarmButton = document.getElementById('alarm-button');
-    alarmButton.removeEventListener('click', alarmButtonClicked);
     alarmButton.addEventListener('click', alarmButtonClicked);
 
     var bookmarkButton = document.getElementById('bookmark-button');
-    bookmarkButton.removeEventListener('click', bookmarkButtonClicked);
-    bookmarkButton.removeEventListener('click', saveFavoriteParkingInfoToLocalStorage);
     bookmarkButton.addEventListener('click', bookmarkButtonClicked);
-    bookmarkButton.addEventListener('click', saveFavoriteParkingInfoToLocalStorage);
+
+    if (isFavorite) {
+        bookmarkButton.classList.remove('btn-outline-primary');
+        bookmarkButton.classList.add('btn-primary');
+    } else {
+        bookmarkButton.classList.remove('btn-primary');
+        bookmarkButton.classList.add('btn-outline-primary');
+    }
+
+    if (isAlarm) {
+        alarmButton.classList.remove('btn-outline-primary');
+        alarmButton.classList.add('btn-primary');
+    } else {
+        alarmButton.classList.remove('btn-primary');
+        alarmButton.classList.add('btn-outline-primary');
+    }
 
 }
 
@@ -248,16 +268,6 @@ window.onload = function() {
     }
 };
 
-// 주차장 카드를 선택해도 나올 수 있도록 매개변수를 위한 함수를 하나 더 생성
-function showDetailsWithAnimation(index) {
-    // showDetails 함수를 호출
-    showDetails(index);
-
-    // 추가적인 애니메이션을 적용
-    // 예를 들어, detailsModalBody 요소에 fade-in 애니메이션을 적용
-    var detailsModalBody = document.getElementById('detailsModalBody');
-    detailsModalBody.style.animation = 'fadeIn 1s';
-}
 
 // 거리 옵션을 선택했을 때
 document.querySelectorAll('#rangeDropdown ul')[0].addEventListener('click', function(event) {
@@ -281,24 +291,51 @@ function changeButtonText(text) {
     document.getElementById("noticeRange").textContent = text;
 }
 
-function alarmButtonClicked() {
-    var alarmButton = document.getElementById('alarm-button');
-    if (alarmButton.classList.contains('btn-outline-primary')) {
-        alarmButton.classList.remove('btn-outline-primary');
-        alarmButton.classList.add('btn-primary');
-    } else {
-        alarmButton.classList.remove('btn-primary');
-        alarmButton.classList.add('btn-outline-primary');
+function parkingInfoDuplicateCheck(parkingObj) {
+    for (let i = 0; i < favoriteParkingInfo.length; i++) {
+        if (favoriteParkingInfo[i].name === parkingObj.name &&
+            favoriteParkingInfo[i].address === parkingObj.address) {
+            return true; // 중복이면 true 반환
+        }
     }
+    return false; // 중복이 아니면 false 반환
+}
+
+// 관심 주차장 배열을 로컬 스토리지에 저장하는 함수
+
+
+// 로컬 스토리지에서 관심 주차장 배열을 가져오는 함수
+function getFavoriteParkingInfoFromLocalStorage() {
+    let data = localStorage.getItem('favoriteParkingInfo');
+    return data ? JSON.parse(data) : [];
 }
 
 function bookmarkButtonClicked() {
     var bookmarkButton = document.getElementById('bookmark-button');
+    var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
+
+    // 현재 주차장 정보를 가져옴
+    var currentParking = {
+        name: searchResults[currentIndex][0],
+        address: searchResults[currentIndex][2],
+        // 필요한 경우 추가 정보를 여기에 추가
+    };
+
     if (bookmarkButton.classList.contains('btn-outline-primary')) {
+        // 북마크 버튼이 눌려지면, 현재 주차장을 favoriteParkingInfo 배열에 추가
+        favoriteParkingInfo.push(currentParking);
         bookmarkButton.classList.remove('btn-outline-primary');
         bookmarkButton.classList.add('btn-primary');
     } else {
+        // 북마크 버튼이 해제되면, 현재 주차장을 favoriteParkingInfo 배열에서 제거
+        favoriteParkingInfo = favoriteParkingInfo.filter(function(parking) {
+            return parking.name !== currentParking.name || parking.address !== currentParking.address;
+        });
         bookmarkButton.classList.remove('btn-primary');
         bookmarkButton.classList.add('btn-outline-primary');
     }
+
+    // 변경된 favoriteParkingInfo 배열을 로컬 스토리지에 저장
+    localStorage.setItem('favoriteParkingInfo', JSON.stringify(favoriteParkingInfo));
 }
+

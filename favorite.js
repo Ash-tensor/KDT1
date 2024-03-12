@@ -206,25 +206,3 @@ plusButton.addEventListener("click", () => {
     });
 });
 
-function setBookmarkButtonState() {
-    var bookmarkButton = document.getElementById('bookmark-button');
-    var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
-
-    // bookmarkButton의 id가 favoriteParkingInfo에 있는지 확인
-    var isBookmarked = favoriteParkingInfo.some(function(parking) {
-        return parking.name === bookmarkButton.id;
-    });
-
-    if (isBookmarked) {
-        // bookmarkButton이 눌려져 있는 상태로 설정
-        bookmarkButton.classList.remove('btn-outline-primary');
-        bookmarkButton.classList.add('btn-primary');
-    } else {
-        // bookmarkButton이 눌리지 않은 상태로 설정
-        bookmarkButton.classList.remove('btn-primary');
-        bookmarkButton.classList.add('btn-outline-primary');
-    }
-}
-
-// 페이지가 로드될 때 bookmarkButton의 상태를 설정
-window.addEventListener('load', setBookmarkButtonState);
