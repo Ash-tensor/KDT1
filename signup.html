@@ -6,16 +6,21 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>회원가입하기</title>
 </head>
 <body>
 <div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <nav class="navbar navbar-expand-lg no-padding bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="./asset/6.PNG" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
-                로고가 여기 들어갑니다
+            <a class="navbar-brand" id="navbar-txt" href="#">
+                <img src="./asset/6-removebg.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+                파킹고
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,32 +28,34 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">홈</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">공지사항</a>
+                        <a class="nav-link" href="notice.html">공지사항</a>
                     </li>
                     <li class="nav-item">
-                        <!--마이페이지 관련 사이드바를 여는 버튼-->
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                            개인화 메뉴
+                        <!--로그인 사이드바를 여는 버튼-->
+                        <button class="btn btn-purple" id="loginOrMypageButton" type="button" onclick="showOffcanvas()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                            로그인
                         </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
     <!-- 회원가입 메인 내용 -->
     <div class="signup">
         <h1>회원가입</h1>
-        <hr><h4>OOO 회원가입을 진심으로 환영합니다</h4></hr>
+        <hr><h4>파킹고 회원가입을 진심으로 환영합니다</h4></hr>
     </div>
     <div id="wrap">
         <p><h3 class="title2">회원 기본정보 입력</h3></p>
         <div class="member">
             <!-- 아이디 입력 -->
-            <h4 class="list">아이디</h4>
-            <span class="box int_id" ><input type="text" placeholder="4~15자리 이내의 영문과 숫자로만 입력" id="id" class="int check" maxlength="15" required></span>
+            <h4 class="list">아이디<span id="idError"></span></h4>
+            <span class="box int_id" ><input class="usrid" type="text" placeholder="4~15자리 이내의 영문과 숫자로만 입력" id="id" class="int check" maxlength="15" required></span>
             <!-- 비밀번호 입력 -->
             <h4 class="list">비밀번호</h4>
             <span class="box int_id"><input class="userpw" type="password" placeholder="8자리 이상 사용" id="pw" class="int check" maxlength="15" required></span>
@@ -56,11 +63,11 @@
             <h4 class="list">비밀번호 재확인</h4>
             <span class="box int_id"><input class="userpw-confirm" type="password" id="pwCheck" class="int check" maxlength="15"></span>
             <!-- 성명 입력 -->
-            <h4 class="list">성명</h4>
-            <span class="box int_id"><input type="text" id="name" class="int check" maxlength="20"></span>
+            <h4 class="list">이름<span id="nameError"></span></h4>
+            <span class="box int_id"><input input class="usrid" type="text" id="name" class="int check" maxlength="20"></span>
             <!-- 전화번호 입력 -->
-            <h4 class="list">전화번호("-" 제외)</h4>
-            <span class="box int_id"><input type="text" id="phoneNum" class="int check" maxlength="11"></span>
+            <h4 class="list">전화번호('-' 제외하고 입력)<span id="phoneNumError"></span></h4>
+            <span class="box int_id"><input class="usrph" type="text" id="phoneNum" class="int check" maxlength="11"></span>
             <!-- 이메일 입력 -->
             <h4 class="list">이메일</h4>
             <span class="box int_id d-flex">
@@ -85,8 +92,47 @@
             <a href="#none">책임의 한계와 법적고지</a>
             <a href="#none">회원정보 고객센터</a>
         </div>
-        <span><a href="#none">OOO Corp.</a></span>
+        <span><a href="#none">파킹고 Corp.</a></span>
     </div>
+
+
+
+
+
+
+
+
+    <!--로그인 사이드바-->
+
+    <div class="offcanvas offcanvas-start gray-bg" tabindex="-1" id="loginOffcanvas" aria-labelledby="loginOffcanvasLabel">
+        <div>
+            <button type="button" class="btn-close text-reset right-array mt-4 me-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <div>
+                <section class="login">
+                    <h2 class="gugi-regular" id="dark-purple">LOGIN</h2>
+                    <p></p> <!--개행-->
+                    <ul>
+                        <li><input type="text" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
+                        <li><input type="password" class="border-radius" placeholder=" 비밀번호" title="비밀번호입력"></li>
+                        <li><input type="checkbox" id="chk_log"><label for="chk_log">로그인 상태 유지</label></li>
+                        <li><button id="loginButton">로그인</button></li>
+                    </ul>
+                    <hr class="hr-width">
+                    <div>
+                        <ul class="no-padding ms-sm-3">
+                            <li><a href="findID.html">아이디 찾기</a></li>
+                            <li><a href="findpwd.html">비밀번호 찾기</a></li>
+                            <li><a href="signup.html">회원가입</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
 
 </div>
 </body>

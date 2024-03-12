@@ -1,20 +1,25 @@
+/*--- 제목(회원가입) 여백 ---*/
 .signup > h1 {
     margin-left: 10px;
 }
 
+/*--- 글자 배열 ---*/
 .signup > h4 {
     text-align: center;
 }
 
+/*--- contents 박스 속성 ---*/
 #wrap {
-    width: 860px;
+    width: 800px;
     height: auto;
     min-height: 800px;
     margin: auto;
     background-color: rgb(255, 255, 255);
     border:2px solid #d9d9d9;
+    color: #000000;
 }
 
+/*--- 제목 글자 여백 ---*/
 /*위 wrap에서 min-height, background 요소 뺌*/
 #wrap2 {
     width: 860px;
@@ -34,6 +39,7 @@
     margin-left: 10px;
 }
 
+/*--- 입력 내용 속성 ---*/
 .member{
     width: 400px;
     margin: auto;
@@ -50,37 +56,63 @@
     margin-bottom: 10px;
 }
 
+/*--- input박스 속성 ---*/
 .member input:not(input[type=radio]),.member select{
     border: 1px solid #dadada;
     padding: 15px;
     width: 100%;
     margin-bottom: 5px;
-    border-radius: 5px;
 }
 
+/*--- 아이디 이모티콘 속성 ---*/
+.usrid{
+    background:url(./asset/person.png) no-repeat center right 6px;
+    background-size: 30px;
+    background-color: #fff;
+}
+
+/*--- 비밀번호 이모티콘 속성 ---*/
 .userpw{
     background:url(./asset/8.png) no-repeat center right 15px;
     background-size: 20px;
     background-color: #fff;
 }
 
+/*--- 비밀번호 확인 이모티콘 속성 ---*/
 .userpw-confirm{
     background:url(./asset/9.png) no-repeat center right 15px;
     background-size: 20px;
     background-color: #fff;
 }
 
+/*--- 이름 이모티콘 속성 ---*/
+.usrid{
+    background:url(./asset/person.png) no-repeat center right 6px;
+    background-size: 30px;
+    background-color: #fff;
+}
+
+/*--- 전화번호 이모티콘 속성 ---*/
+.usrph{
+    background:url(./asset/globe.png) no-repeat center right 6px;
+    background-size: 30px;
+    background-color: #fff;
+}
+
+/*--- footer 속성 ---*/
 .member-footer {
     text-align: center;
     font-size: 12px;
     margin-top: 20px;
 }
 
-.member-footer div a:hover{
+/*--- footer 색깔 속성 ---*/
+.member-footer div a:hover {
     text-decoration: underline;
-    color: #d56dff;
+    color:#d56dff
 }
 
+/*--- footer 위치 속성 ---*/
 .member-footer div a:after{
     content:'|';
     font-size: 10px;
@@ -108,7 +140,6 @@
 }
 
 body{
-    font-family: 'Noto Sans KR', sans-serif;
     font-size:14px;
     background-color: #f5f6f7;
     line-height: 1.5em;
@@ -116,6 +147,7 @@ body{
     margin: 0;
 }
 
+/*--- 페이지 이동 속성 ---*/
 a{
     text-decoration: none;
     color: #222;
@@ -128,14 +160,13 @@ a{
     margin-bottom: 5px;
 }
 
+/*--- 버튼 속성 ---*/
 .member input[type=button],
 .member input[type=submit]{
     background-color: #d56dff;
     color:#fff;
-    border-radius: 5px;
+    margin-top: 20px;
 }
-
-
 
 
 
