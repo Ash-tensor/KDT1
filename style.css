@@ -71,8 +71,8 @@ body {
     height: 220px;
 }
 
-card-left {
-    /*padding-left: 5px;*/
+.card-left {
+    padding-left: 10px;
 }
 
 .outer-border {
@@ -554,4 +554,39 @@ select option[value=""][disabled] {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.toast {
+    z-index: 9999;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.section_title {
+    padding-left: 20px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.btn-33{
+
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+}
+
+.btn-33 i {
+    display: flex;
+justify-content: center;
+}
+
+
+
+.margin-left-10{
+    margin-left: 10px;
 }

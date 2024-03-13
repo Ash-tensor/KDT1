@@ -112,8 +112,10 @@
                     </div>
                     <!--                    날씨 위젯-->
 
-                    <div id="cardSection" class="row flex-nowrap overflow-auto">
-                        <div class="card-left card col-auto" style="width: 15rem;">
+                    <h5 class="section_title bg-white" id="search-section-h5">현재 가장 많이 찾는 주차장 🚀</h5>
+
+                    <div id="cardSection" class="row card-left flex-nowrap overflow-auto">
+                        <div class="card col-auto" style="width: 15rem;">
                             <img src="./asset/parking-1.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title placeholder-glow">
@@ -173,6 +175,7 @@
                 <div class="section_searchResult">
                     <div id="totalResults"></div> <!-- 검색 결과 총 건수를 표시할 곳 -->
                     <div id="parkingResults">
+
                         <p id="searchPlaceholder"></p>
                         <p id="noResultsMessage" style="display: none;">선택한 범위 내에 주차장이 없습니다.</p>
 
@@ -297,13 +300,15 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="noParkingModalLabel">주차 불가능</h5>
+                    <h5 class="modal-title" id="noParkingModalLabel">주차 불가능😢</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    현재 이 주차장에는 주차 가능한 공간이 없습니다. 계산해 본 결과 평균적으로 15분 정도 기다리면 자리가 생길 수 있습니다. 알려드릴까요?
+                    현재 이 주차장에는 주차 가능한 공간이 없습니다. 계산해 본 결과 평균적으로 15분 정도 기다리면 자리가 생길 수 있습니다.
+                    알려드릴까요?
                 </div>
                 <div class="modal-footer">
+                    <button type="button" id="accept-button" class="btn btn-primary">네, 알려주세요!</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                 </div>
             </div>
@@ -312,12 +317,30 @@
 
     <!--    주차공간이 없을때 뜨는 모달-->
 
-</div>
+<!--    알람을 위한 토스트 섹션-->
+
+    <div class="toast gradation-background align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                지금 자리가 난 것 같아요! 확인해보세요!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
 
 <script src="placeholder.js"></script>
 <script src="search.js"></script>
 <script src="script.js"></script>
 <script src="map_script.js"></script>
 <script src="user-info-modify.js"></script>
+
+</div>
+
+    <script src="alarm.js"></script>
+    <script src="placeholder.js"></script>
+    <script src="search.js"></script>
+    <script src="script.js"></script>
+    <script src="map_script.js"></script>
+
 </body>
 </html>
