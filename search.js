@@ -19,6 +19,7 @@ function searchParking(){
     document.getElementById('cardSection').style.display = "none";
     document.getElementById('forecasting').style.display = "none";
     document.getElementById('search-section-h5').style.display = "none";
+    document.getElementById('div-alert').style.display = "none";
 
 
 
