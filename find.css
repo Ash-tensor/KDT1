@@ -54,7 +54,7 @@ body{
 
 /*--- 이메일 입력 박스 여백 속성 ---*/
 .rtext2 {
-    margin-left: -110px;
+    margin-left: 1px;
     margin-top: 50px;
 }
 
@@ -112,13 +112,14 @@ body{
 
 /*--- 인증번호 입력 속성 ---*/
 .ph2 {
-    margin-left: 117px;
+    margin-left: 120px;
     margin-top: 1px;
     width: 200px;
 }
 
 .ph3 {
-    margin-left: 117px;
+    margin-top: 5px;
+    margin-left: 120px;
     margin-bottom: 20px;
 }
 
@@ -142,17 +143,24 @@ body{
     margin-top: 25px ;
 }
 
+#chkbtn {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center;
+}
+
 /*--- 아이디 입력과 이모티콘 속성 ---*/
 .fid2 {
+    display: block;
     text-align:center;
-    display:block;
-    margin: 0 auto;
+    margin-right: 20px;
     width: 500px;
     height: 40px;
     background:url(./asset/person.png) no-repeat center right 6px;
     background-size: 30px;
     background-color: #fff;
 }
+
 
 /*--- 아이디 찾기 p태그 속성 ---*/
 .fid3 {
@@ -176,4 +184,9 @@ body{
     background-color: rgb(255, 255, 255);
     border:2px solid #d9d9d9;
     color: #000000;
+}
+
+.alm {
+    text-decoration: underline;
+    color:#d56dff
 }
