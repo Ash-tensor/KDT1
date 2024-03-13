@@ -13,8 +13,7 @@ document.getElementById("user_info_modify_button")?.addEventListener("click", fu
     location.reload();
 });
 
-// 페이지 로드 시 로컬 스토리지에 저장된 닉네임 값을 읽어옴
-window.onload = function() {
+window.addEventListener('load', function() {
     // 로컬 스토리지에서 변경된 닉네임을 불러옴
     var changedUserNickname = localStorage.getItem('changedUserNickname');
     // 닉네임이 표시되는 html 요소
@@ -38,7 +37,12 @@ window.onload = function() {
         sessionStorage.setItem("signIn", "false");
         offCanvasLoad();
     });
-};
+
+    setTimeout(function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('id8a7fe3873ef63').style.display = 'block';
+    }, 1500);
+});
 
 // --------------------------------------------------------------------------------------------- //
 // ************ 이 밑으로는 사이드바 관련 js입니다 **************** ///
@@ -56,26 +60,14 @@ function updateButtonLabel() {
 }
 
 // 로그인 버튼 누름 -> signIn 값을 true로 설정하고 세션 저장소에 저장 -> 사이드바 로드
-// 아이디에 'w'가 포함될시 로그인 실패
 document.getElementById("loginButton")?.addEventListener("click", function() {
-    // 아이디 입력값을 가져옴
-    var userid = document.getElementById('user_id').value;
-
-    // 아이디에 'w'가 포함되어 있는지 확인
-    if (userid.includes('w')) {
-        signIn = false;
-        // 로그인 실패창을 띄움
-        alert("계정이 존재하지 않습니다.");
-    } else {
-        signIn = true;
-        sessionStorage.setItem("signIn", "true");
-        offCanvasLoad();
-    }
+    signIn = true;
+    sessionStorage.setItem("signIn", "true");
+    offCanvasLoad();
 });
 
 // 로그아웃 버튼을 누름 -> signIn 값을 false로 설정하고 세션 저장소에 저장 -> 사이드바 로드
 document.getElementById("logoutButton")?.addEventListener("click", function() {
-    console.log("test");
     signIn = false;
     sessionStorage.setItem("signIn", "false");
     offCanvasLoad();
