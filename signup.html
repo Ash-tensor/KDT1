@@ -16,9 +16,11 @@
 </head>
 <body>
 <div>
-    <nav class="navbar navbar-expand-lg no-padding bg-body-tertiary">
+    <!--    네비게이션 바-->
+    <div id="navbar-placeholder" style="height: 60px;"></div>
+    <nav class="navbar navigation-fixed navbar-expand-lg no-padding bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" id="navbar-txt" href="#">
+            <a class="navbar-brand" id="navbar-txt" href="index.html">
                 <img src="./asset/6-removebg.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
                 파킹고
             </a>
@@ -28,22 +30,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">홈</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">홈</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="notice.html">공지사항</a>
                     </li>
+
                     <li class="nav-item">
-                        <!--로그인 사이드바를 여는 버튼-->
-                        <button class="btn btn-purple" id="loginOrMypageButton" type="button" onclick="showOffcanvas()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                            로그인
+                        <!--마이페이지 관련 사이드바를 여는 버튼-->
+                        <button class="btn btn-purple" id="loginOrMypageButton" type="button" onclick="showOffcanvas()">
                         </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <!-- 회원가입 메인 내용 -->
     <div class="signup">
@@ -95,13 +96,6 @@
         <span><a href="#none">파킹고 Corp.</a></span>
     </div>
 
-
-
-
-
-
-
-
     <!--로그인 사이드바-->
 
     <div class="offcanvas offcanvas-start gray-bg" tabindex="-1" id="loginOffcanvas" aria-labelledby="loginOffcanvasLabel">
@@ -132,8 +126,38 @@
         </div>
     </div>
 
+    <!--마이페이지 사이드바-->
 
+    <div class="offcanvas offcanvas-start gray-bg" tabindex="-1" id="myPageOffcanvas" aria-labelledby="myPageOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white" id="myPageOffcanvasLabel">마이페이지</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <img class="user-profile" src="/asset/profile.png">
+                <p class="user-status" id="user_nickname">홍길동 <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></p>
+            </div>
+            <div class="gray-box bg-white">
+                <p class="mb-auto">개인정보 수정<button class="right-arrow" onclick="location.href='user-info-modify.html'"><i class="fas fa-chevron-right"></i></button></p>
+            </div>
+            <div class="gray-box bg-white">
+                <p class="mb-auto">관심 주차장<button class="right-arrow" onclick="location.href='user-parkinglot.html'"><i class="fas fa-chevron-right"></i></button></p>
+            </div>
+            <div class="gray-box bg-white">
+                <p class="mb-auto">알림 설정<button class="right-arrow" onclick="location.href='user-alarm.html'"><i class="fas fa-chevron-right"></i></button></p>
+            </div>
+            <div class="gray-box bg-white">
+                <p class="mb-auto">회원 탈퇴<button class="right-arrow" onclick="location.href='user-quit.html'"><i class="fas fa-chevron-right"></i></button></p>
+            </div>
+        </div>
+    </div>
 
+    <script src="placeholder.js"></script>
+    <script src="search.js"></script>
+    <script src="script.js"></script>
+    <script src="map_script.js"></script>
+    <script src="user-info-modify.js"></script>
 </div>
 </body>
 </html>

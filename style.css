@@ -182,7 +182,7 @@ ul{
     -webkit-text-fill-color: transparent;
 }
 
-/*--- 로그인 유지 체크박스 속성 ---*/
+    /*--- 로그인 유지 체크박스 속성 ---*/
 .login > ul li input[type="checkbox"]:checked + label:before {
     background: url(./asset/7.png) no-repeat;
     border: none;
@@ -322,7 +322,7 @@ ul{
 /* --- 여기서부터 마이페이지에 쓰인 css입니다 ---*/
 /*마이페이지 오프캔버스(사이드바) 헤더*/
 .offcanvas-header {
-    background: #d56dff;
+    background: linear-gradient(90deg, mediumpurple, hotpink);
 }
 
 /*유저 프로필 표시*/
@@ -404,6 +404,12 @@ ul{
     margin-right: 20px;
 }
 
+/*탈퇴 성공 아이콘*/
+.quit-success {
+    color: #2db400;
+    font-size: 50px;
+}
+
 /*헤더 부분*/
 .header{
     margin: 20px 0px;
@@ -476,6 +482,7 @@ select option[value=""][disabled] {
     position: relative;
     border: lightgray 1px solid;
     border-radius: 30px;
+    background: royalblue;
 }
 
 .toggleSwitch .toggleButton {
@@ -483,6 +490,7 @@ select option[value=""][disabled] {
     height: 38px;
     position: absolute;
     top: 50%;
+    left: 50%;
     transform: translateY(-50%);
     border: lightgray 1px solid;
     border-radius: 50%;
@@ -490,11 +498,11 @@ select option[value=""][disabled] {
 }
 
 #toggle:checked ~ .toggleSwitch {
-    background: royalblue;
+    background: white;
 }
 
 #toggle:checked ~ .toggleSwitch .toggleButton {
-    left: calc(100% - 37px);
+    left: calc(50% - 37px);
     background: white;
 }
 
@@ -519,6 +527,7 @@ select option[value=""][disabled] {
     width: 40%;
 }
 
+/*회색 배경*/
 .gray-bg {
     background-color: #f5f6f7;
 }
@@ -528,7 +537,6 @@ select option[value=""][disabled] {
     color: #9a55b7;
     /*color: #d56dff;*/
 }
-
 
 .spinner-border {
     position: relative;
