@@ -220,7 +220,7 @@
                     <h2 class="gugi-regular" id="dark-purple">LOGIN</h2>
                     <p></p> <!--개행-->
                     <ul>
-                        <li><input type="text" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
+                        <li><input type="text" id="user_id" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
                         <li><input type="password" class="border-radius" placeholder=" 비밀번호" title="비밀번호입력"></li>
                         <li><input type="checkbox" id="chk_log"><label for="chk_log">로그인 상태 유지</label></li>
                         <li><button id="loginButton">로그인</button></li>
@@ -248,7 +248,7 @@
         <div class="offcanvas-body">
             <div>
                 <img class="user-profile" src="/asset/profile.png">
-                <p class="user-status">홍길동 <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></p>
+                <p class="user-status" id="user_nickname"></p>
             </div>
             <div class="gray-box bg-white">
                 <p class="mb-auto">개인정보 수정<button class="right-arrow" onclick="location.href='user-info-modify.html'"><i class="fas fa-chevron-right"></i></button></p>
@@ -328,6 +328,11 @@
         </div>
     </div>
 
+<script src="placeholder.js"></script>
+<script src="search.js"></script>
+<script src="script.js"></script>
+<script src="map_script.js"></script>
+<script src="user-info-modify.js"></script>
 
 </div>
 
