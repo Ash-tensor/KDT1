@@ -40,12 +40,15 @@ function displaySearchResults(){
         var parkingInfo = document.createElement("div");
         parkingInfo.className = "parking-info";
 
-        parkingInfo.innerHTML = "<strong>주차장 이름:</strong> " + searchResults[i][0] + "<br>" +
+        parkingInfo.innerHTML = "<strong>주차장 이름:</strong> " + searchResults[i][0]+"<button id='bookmark-button2' class='btn btn-outline-primary btn-33 margin-left-10'><i class='bi bi-bookmark-star-fill'></i></button> " +
+            "<button id='alarm-button2' class='btn btn-outline-primary btn-33'><i class='bi bi-alarm'></i></button> </h3>"+"<br>" +
             "<strong>현재 위치와 거리:</strong> " + searchResults[i][1] + "<br>" +
             "<strong>주소:</strong> " + searchResults[i][2] + "<br>" +
             "<strong>전체 주차면:</strong> <span class='parking-lot'>" + searchResults[i][3] + "</span>";
 
         parkingInfo.addEventListener("click", function(index) {
+
+
             return function() {
                 // 클릭된 주차장의 인덱스를 저장
                 currentIndex = index;
@@ -53,6 +56,16 @@ function displaySearchResults(){
                 showDetails();
             };
         }(i));
+
+        // 버튼 클릭 이벤트 전파 막기
+        var bookmarkButton = parkingInfo.querySelector("#bookmark-button2");
+        var alarmButton = parkingInfo.querySelector("#alarm-button2");
+        bookmarkButton.addEventListener("click", function(event) {
+            event.stopPropagation();
+        });
+        alarmButton.addEventListener("click", function(event) {
+            event.stopPropagation();
+        });
 
 
         parkingResults.appendChild(parkingInfo);
@@ -314,6 +327,8 @@ function bookmarkButtonClicked() {
     var bookmarkButton = document.getElementById('bookmark-button');
     var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
 
+
+
     // 현재 주차장 정보를 가져옴
     var currentParking = {
         name: searchResults[currentIndex][0],
@@ -337,5 +352,6 @@ function bookmarkButtonClicked() {
 
     // 변경된 favoriteParkingInfo 배열을 로컬 스토리지에 저장
     localStorage.setItem('favoriteParkingInfo', JSON.stringify(favoriteParkingInfo));
+
 }
 

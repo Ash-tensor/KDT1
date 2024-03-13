@@ -238,6 +238,15 @@ div .page-title h3 {
 
 #noticeV2 .no-title {
     text-align: left;
+    padding-left: 10px;
+}
+
+#noticeV2 .no-date{
+ margin-left: 400px;
+}
+
+#noticeV2 .no-views{
+    text-align: right;
 }
 
 .backBtn{
