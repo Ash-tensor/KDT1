@@ -590,7 +590,7 @@ select option[value=""][disabled] {
 
 .btn-33 i {
     display: flex;
-justify-content: center;
+    justify-content: center;
 }
 
 
@@ -607,3 +607,11 @@ justify-content: center;
     margin-bottom: 50px;
 }
 
+@media (max-width: 768px) {
+    #left-column {
+        width: 100vw;
+    }
+    #mapContainer {
+        display: none;
+    }
+}
