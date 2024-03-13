@@ -61,7 +61,7 @@
     <div class="container-fluid no-padding hieght-100">
         <div class="row">
             <!-- 첫 번째 칼럼 -->
-            <div class="col outer-border no-padding col-4 hieght-100">
+            <div id="left-column" class="col outer-border no-padding col-4 hieght-100">
 
                 <!--목적지 검색창-->
                 <!--form요소의 기본 enter키 이벤트때문에 form을 div로 변경함-->
@@ -167,6 +167,10 @@
                         </div>
 
                     </div>
+
+                    <div id="div-alert" class="bg-white">
+                        <a href="notice.html" class="section_alert" id="alert-h6">⚠️파킹고 2024.03.13(수) 02:00 ~ 03:00 이용 제한 안내</a>
+                    </div>
                 </div>
 
 
@@ -220,7 +224,7 @@
                     <h2 class="gugi-regular" id="dark-purple">LOGIN</h2>
                     <p></p> <!--개행-->
                     <ul>
-                        <li><input type="text" id="user_id" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
+                        <li><input type="text" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
                         <li><input type="password" class="border-radius" placeholder=" 비밀번호" title="비밀번호입력"></li>
                         <li><input type="checkbox" id="chk_log"><label for="chk_log">로그인 상태 유지</label></li>
                         <li><button id="loginButton">로그인</button></li>
@@ -247,8 +251,8 @@
         </div>
         <div class="offcanvas-body">
             <div>
-                <img class="user-profile" src="/asset/profile.png">
-                <p class="user-status" id="user_nickname"></p>
+                <img class="user-profile" src="./asset/profile.png">
+                <p class="user-status">홍길동 <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></p>
             </div>
             <div class="gray-box bg-white">
                 <p class="mb-auto">개인정보 수정<button class="right-arrow" onclick="location.href='user-info-modify.html'"><i class="fas fa-chevron-right"></i></button></p>
@@ -308,7 +312,7 @@
                     알려드릴까요?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="accept-button" class="btn btn-primary">네, 알려주세요!</button>
+                    <button type="button" id="accept-button" onclick="alarmButtonClicked()" data-bs-dismiss="modal" class="btn btn-primary">네, 알려주세요!</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                 </div>
             </div>

@@ -18,6 +18,7 @@
 
 body {
     font-family: "Nanum Gothic", sans-serif;
+    overflow: hidden;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
@@ -573,6 +574,13 @@ select option[value=""][disabled] {
     font-weight: bold;
 }
 
+.section_alert {
+    padding-left: 20px;
+    margin: 0;
+    font-weight: bold;
+    padding-bottom: 40px;
+}
+
 .btn-33{
 
     width: 33px;
@@ -590,3 +598,12 @@ justify-content: center;
 .margin-left-10{
     margin-left: 10px;
 }
+
+#left-column {
+    overflow: scroll;
+}
+
+#div-alert {
+    margin-bottom: 50px;
+}
+
