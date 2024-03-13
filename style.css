@@ -578,6 +578,7 @@ select option[value=""][disabled] {
     padding-left: 20px;
     margin: 0;
     font-weight: bold;
+    padding-bottom: 40px;
 }
 
 .btn-33{
@@ -602,4 +603,7 @@ justify-content: center;
     overflow: scroll;
 }
 
+#div-alert {
+    margin-bottom: 50px;
+}
 
