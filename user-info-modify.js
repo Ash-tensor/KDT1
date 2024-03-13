@@ -1,3 +1,6 @@
+// 로컬저장소에 디폴트 닉네임(홍길동) 저장
+localStorage.setItem('defaultNickname', "홍길동");
+
 // 개인 정보 수정 페이지의 변경 버튼 누름
 document.getElementById("user_info_modify_button")?.addEventListener("click", function() {
     // 닉네임 변경 input 값 가져옴
@@ -14,13 +17,18 @@ document.getElementById("user_info_modify_button")?.addEventListener("click", fu
 window.onload = function() {
     // 로컬 스토리지에서 변경된 닉네임을 불러옴
     var changedUserNickname = localStorage.getItem('changedUserNickname');
+    // 닉네임이 표시되는 html 요소
+    var userNickname = document.getElementById('user_nickname');
 
     // 변경된 닉네임이 존재할 경우 마이페이지에 반영
     if (changedUserNickname) {
-        // 닉네임이 표시되는 html 요소
-        var userNickname = document.getElementById('user_nickname');
         // 변경된 닉네임을 html 요소에 적용
         userNickname.innerHTML = changedUserNickname + ' <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>';
+    } else {
+        // 로컬 스토리지에서 디폴트 닉네임을 불러옴
+        var defaultNickname = localStorage.getItem('defaultNickname');
+        // 변경된 닉네임이 없으면 디폴트 닉네임(홍길동)이 표시됨
+        userNickname.innerHTML =  defaultNickname + ' <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>';
     }
 
     // 변경된 닉네임 옆 로그아웃 버튼의 이벤트리스너 새로 추가
