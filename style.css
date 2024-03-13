@@ -565,6 +565,12 @@ select option[value=""][disabled] {
     font-weight: bold;
 }
 
+.section_alert {
+    padding-left: 20px;
+    margin: 0;
+    font-weight: bold;
+}
+
 .btn-33{
 
     width: 33px;
