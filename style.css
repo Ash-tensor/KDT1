@@ -588,3 +588,8 @@ justify-content: center;
 .margin-left-10{
     margin-left: 10px;
 }
+
+#left-column {
+    overflow: scroll;
+}
+
