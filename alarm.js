@@ -1,6 +1,6 @@
 
-let searchResults = [];//주차장 검색 결과를 저장할 배열
-let alarmParkingInfo = []; // 관심 주차장의 정보를 저장하는 배열
+// let searchResults = [];//주차장 검색 결과를 저장할 배열
+// let alarmParkingInfo = []; // 관심 주차장의 정보를 저장하는 배열
 
 function parkingInfoDuplicateCheck(parkingObj) {
     for (let i = 0; i < alarmParkingInfo.length; i++) {
