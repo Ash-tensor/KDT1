@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="signup.css">
     <meta charset="UTF-8">
-    <title>회원 탈퇴</title>
+    <title>회원 탈퇴 성공</title>
 </head>
 <body>
 <!--    네비게이션 바-->
@@ -104,34 +104,30 @@
         </div>
     </div>
 </div>
-<!--헤더 부분-->
-<div class="gray-box">
-    <h4 class="header">회원 탈퇴<button class="left-arrow" id="leftArrow" ><i class="fa-solid fa-chevron-left"></i></button></h4>
-</div>
-<div class="gray-partition"></div>
 <!--회원 탈퇴(하얀색 박스) 부분-->
-<div id="wrap3">
-    <div class="member">
-        <!-- 아이디 입력 -->
-        <h5 class="list">아이디 입력</h5>
-        <span class="box int_id" ><input type="text" id="user_id" maxlength="15"></span>
-        <!-- 비밀번호 입력 -->
-        <h5 class="list">비밀번호 입력</h5>
-        <span class="box int_id"><input type="password" id="user_pw" class="userpw" placeholder="  사용 중인 비밀번호를 입력해주세요." maxlength="15"></span>
-        <!-- 탈퇴 사유 -->
-        <h5 class="list">무엇이 불편하셨나요?</h5>
-        <span class="box int_id">
-            <select name="user_quit_reason">
-                <option value="" disabled selected>&nbsp;&nbsp;탈퇴 사유는 제품 개선에 큰 도움이 됩니다.</option>
-                <option value="">&nbsp;&nbsp;이용이 불편해서</option>
-                <option value="">&nbsp;&nbsp;다른 앱이 더 좋아서</option>
-                <option value="">&nbsp;&nbsp;사용 빈도가 낮아서</option>
-                <option value="">&nbsp;&nbsp;기타</option>
-            </select>
-        </span>
-        <!-- 탈퇴하기 버튼 -->
-        <p></p> <!-- 공백  -->
-        <input type="submit" class="button" id=user_quit_button onclick="location.href='quit-success.html'" value="탈퇴하기">
+<div id="wrap3" class="mt-5">
+    <div class="member2">
+        <div>
+            <h2 class="text-center fw-semibold">
+                회원 탈퇴 성공
+            </h2>
+        </div>
+        <div class="mt-4">
+            <i class="fa-regular fa-circle-check quit-success"></i>
+        </div>
+        <div class="mt-4">
+            <h6 class="text-center fw-semibold text-secondary">지금까지 파킹고를 이용해 주셔서 감사합니다.<br>
+                <br>
+                <br>
+                파킹고를 이용하시면서 불편함을 느끼셨다면 언제든지 피드백 남겨 주시길 바랍니다.<br>
+                <br>
+                저희는 항상 회원님의 의견에 귀 기울이고 서비스를 개선해 나가고자 노력하고 있습니다.<br>
+                <br>
+                <br>
+                또한, 회원 탈퇴 이후 다시 파킹고를 이용하시고 싶다면 언제든지 회원 가입이 가능합니다.<br>
+                <br>
+                앞으로도 좋은 서비스를 제공하기 위해 노력하겠습니다.</h6>
+        </div>
     </div>
 </div>
 <!--footer 부분-->

@@ -22,6 +22,14 @@ window.onload = function() {
         // 변경된 닉네임을 html 요소에 적용
         userNickname.innerHTML = changedUserNickname + ' <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>';
     }
+
+    // 변경된 닉네임 옆 로그아웃 버튼의 이벤트리스너 새로 추가
+    document.getElementById("logoutButton")?.addEventListener("click", function() {
+        console.log("test");
+        signIn = false;
+        sessionStorage.setItem("signIn", "false");
+        offCanvasLoad();
+    });
 };
 
 // --------------------------------------------------------------------------------------------- //
