@@ -1,3 +1,32 @@
+// 개인 정보 수정 페이지의 변경 버튼 누름
+document.getElementById("user_info_modify_button")?.addEventListener("click", function() {
+    // 닉네임 변경 input 값 가져옴
+    var changedUserNickname = document.getElementById('changed_user_nickname').value;
+    // 로컬 스토리지에 변경된 닉네임 값 저장
+    localStorage.setItem('changedUserNickname', changedUserNickname);
+    // 변경 완료 알림창
+    alert("변경 사항이 성공적으로 적용되었습니다.");
+    // 페이지를 새로고침하여 변경 사항 반영
+    location.reload();
+});
+
+// 페이지 로드 시 로컬 스토리지에 저장된 닉네임 값을 읽어옴
+window.onload = function() {
+    // 로컬 스토리지에서 변경된 닉네임을 불러옴
+    var changedUserNickname = localStorage.getItem('changedUserNickname');
+
+    // 변경된 닉네임이 존재할 경우 마이페이지에 반영
+    if (changedUserNickname) {
+        // 닉네임이 표시되는 html 요소
+        var userNickname = document.getElementById('user_nickname');
+        // 변경된 닉네임을 html 요소에 적용
+        userNickname.innerHTML = changedUserNickname + ' <button class="logout" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>';
+    }
+};
+
+// --------------------------------------------------------------------------------------------- //
+// ************ 이 밑으로는 사이드바 관련 js입니다 **************** ///
+
 // 페이지가 로드될 때 signIn 값을 세션 저장소에서 가져옴
 var signIn = sessionStorage.getItem("signIn") === "true";  //signIn 값이 true면 signIn 변수에 true가 할당, 그렇지 않다면 false가 할당됨
 
@@ -30,6 +59,7 @@ document.getElementById("loginButton")?.addEventListener("click", function() {
 
 // 로그아웃 버튼을 누름 -> signIn 값을 false로 설정하고 세션 저장소에 저장 -> 사이드바 로드
 document.getElementById("logoutButton")?.addEventListener("click", function() {
+    console.log("test");
     signIn = false;
     sessionStorage.setItem("signIn", "false");
     offCanvasLoad();
@@ -78,46 +108,3 @@ function showOffcanvas() {
         showLoginOffCanvas();
     }
 }
-
-var ctx = document.getElementById('myChart')?.getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.getElementById('loadingSpinner').style.display = 'none';
-        document.getElementById('id8a7fe3873ef63').style.display = 'block';
-    }, 1500);
-});
