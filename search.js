@@ -18,6 +18,7 @@ function searchParking(){
 
     document.getElementById('cardSection').style.display = "none";
     document.getElementById('forecasting').style.display = "none";
+    document.getElementById('search-section-h5').style.display = "none";
 
     if (searchResults.length === 0) {
         document.getElementById('parkingResults').style.display = "block";
@@ -28,27 +29,73 @@ function searchParking(){
         document.getElementById('searchPlaceholder').style.display = "none";
         document.getElementById('noResultsMessage').style.display = "none";
         parkingResults.innerHTML = ""; // 이전 검색 결과를 초기화
-        totalResults.innerHTML = "<h3>검색 결과: " + searchResults.length+"건</h3>";
+        totalResults.innerHTML = "<h5>🔍검색 결과: " + searchResults.length+"건</h5>";
+        totalResults.style.paddingLeft = "10px";
         displaySearchResults(); // 검색 결과를 표시하는 함수로 대체해야 합니다.
     }
 }
 
+// function displaySearchResults(){
+//     var parkingResults = document.getElementById("parkingResults");
+//     var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
+//     var alarmParkingInfo = getAlarmInfoFromLocalStorage();
+//
+//     for (var i = 0; i < searchResults.length; i++) {
+//         var parkingInfo = document.createElement("div");
+//         parkingInfo.className = "parking-info";
+//
+//         parkingInfo.innerHTML = "<strong>주차장 이름:</strong> " + searchResults[i][0]+"<button id='bookmark-button2' class='btn btn-outline-primary btn-33 margin-left-10'><i class='bi bi-bookmark-star-fill'></i></button> " +
+//             "<button id='alarm-button2' class='btn btn-outline-primary btn-33'><i class='bi bi-alarm'></i></button> </h3>"+"<br>" +
+//             "<strong>현재 위치와 거리:</strong> " + searchResults[i][1] + "<br>" +
+//             "<strong>주소:</strong> " + searchResults[i][2] + "<br>" +
+//             "<strong>전체 주차면:</strong> <span class='parking-lot'>" + searchResults[i][3] + "</span>";
+//
+//         parkingInfo.addEventListener("click", function(index) {
+//
+//
+//             return function() {
+//                 // 클릭된 주차장의 인덱스를 저장
+//                 currentIndex = index;
+//                 // 자세한 정보 표시
+//                 showDetails();
+//             };
+//         }(i));
+//
+//         // 버튼 클릭 이벤트 전파 막기
+//         var bookmarkButton = parkingInfo.querySelector("#bookmark-button2");
+//         var alarmButton = parkingInfo.querySelector("#alarm-button2");
+//         bookmarkButton.addEventListener("click", function(event) {
+//             event.stopPropagation();
+//         });
+//         alarmButton.addEventListener("click", function(event) {
+//             event.stopPropagation();
+//         });
+//
+//
+//         parkingResults.appendChild(parkingInfo);
+//     }
+//
+//
+// }
 function displaySearchResults(){
     var parkingResults = document.getElementById("parkingResults");
+    var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
+    var alarmParkingInfo = getAlarmInfoFromLocalStorage();
 
     for (var i = 0; i < searchResults.length; i++) {
         var parkingInfo = document.createElement("div");
         parkingInfo.className = "parking-info";
+        parkingInfo.id = "parking-info-" + i;
+        parkingInfo.style.paddingLeft = "10px";
 
-        parkingInfo.innerHTML = "<strong>주차장 이름:</strong> " + searchResults[i][0]+"<button id='bookmark-button2' class='btn btn-outline-primary btn-33 margin-left-10'><i class='bi bi-bookmark-star-fill'></i></button> " +
-            "<button id='alarm-button2' class='btn btn-outline-primary btn-33'><i class='bi bi-alarm'></i></button> </h3>"+"<br>" +
+        // 각 버튼에 고유한 ID 부여
+        parkingInfo.innerHTML = "<strong>주차장 이름:</strong> " + searchResults[i][0]+"<button id='bookmark-button2-" + i + "' class='btn btn-outline-primary btn-33 margin-left-10'><i class='bi bi-bookmark-star-fill'></i></button> " +
+            "<button id='alarm-button2-" + i + "' class='btn btn-outline-primary btn-33'><i class='bi bi-alarm'></i></button> </h3>"+"<br>" +
             "<strong>현재 위치와 거리:</strong> " + searchResults[i][1] + "<br>" +
             "<strong>주소:</strong> " + searchResults[i][2] + "<br>" +
             "<strong>전체 주차면:</strong> <span class='parking-lot'>" + searchResults[i][3] + "</span>";
 
         parkingInfo.addEventListener("click", function(index) {
-
-
             return function() {
                 // 클릭된 주차장의 인덱스를 저장
                 currentIndex = index;
@@ -57,18 +104,54 @@ function displaySearchResults(){
             };
         }(i));
 
-        // 버튼 클릭 이벤트 전파 막기
-        var bookmarkButton = parkingInfo.querySelector("#bookmark-button2");
-        var alarmButton = parkingInfo.querySelector("#alarm-button2");
-        bookmarkButton.addEventListener("click", function(event) {
-            event.stopPropagation();
-        });
-        alarmButton.addEventListener("click", function(event) {
-            event.stopPropagation();
-        });
+        var bookmarkButton = parkingInfo.querySelector("#bookmark-button2-" + i);
+        var alarmButton = parkingInfo.querySelector("#alarm-button2-" + i);
 
+        bookmarkButton.addEventListener("click", function(index) {
+            return function(event) {
+                event.stopPropagation();
+                bookmarkButtonClicked2(index, "bookmark-button2-" + index);
+            };
+        }(i));
+        alarmButton.addEventListener("click", function(index) {
+            return function(event) {
+                event.stopPropagation();
+                alarmButtonClicked2(index, "alarm-button2-" + index);
+            };
+        }(i));
 
         parkingResults.appendChild(parkingInfo);
+    }
+
+    // 주차장 정보를 모두 표시한 후에 버튼의 상태를 설정
+// 주차장 정보를 모두 표시한 후에 버튼의 상태를 설정
+    for (var i = 0; i < searchResults.length; i++) {
+        var isAlarm = alarmParkingInfo.some(function(parking) {
+            return parking.name === searchResults[i][0] && parking.address === searchResults[i][2];
+        });
+        var isFavorite = favoriteParkingInfo.some(function(parking) {
+            return parking.name === searchResults[i][0] && parking.address === searchResults[i][2];
+        });
+
+        var parkingInfo = document.getElementById('parking-info-' + i);
+        var alarmButton = parkingInfo.querySelector('#alarm-button2-' + i);
+        var bookmarkButton = parkingInfo.querySelector('#bookmark-button2-' + i);
+
+        if (isFavorite) {
+            bookmarkButton.classList.remove('btn-outline-primary');
+            bookmarkButton.classList.add('btn-primary');
+        } else {
+            bookmarkButton.classList.remove('btn-primary');
+            bookmarkButton.classList.add('btn-outline-primary');
+        }
+
+        if (isAlarm) {
+            alarmButton.classList.remove('btn-outline-primary');
+            alarmButton.classList.add('btn-primary');
+        } else {
+            alarmButton.classList.remove('btn-primary');
+            alarmButton.classList.add('btn-outline-primary');
+        }
     }
 }
 
@@ -78,6 +161,7 @@ function showDetails(){
     var parkingText;
     var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
     var alarmParkingInfo = getAlarmInfoFromLocalStorage();
+
     var isAlarm = alarmParkingInfo.some(function(parking) {
         return parking.name === searchResults[currentIndex][0] && parking.address === searchResults[currentIndex][2];
     });
@@ -328,7 +412,6 @@ function bookmarkButtonClicked() {
     var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
 
 
-
     // 현재 주차장 정보를 가져옴
     var currentParking = {
         name: searchResults[currentIndex][0],
@@ -352,6 +435,34 @@ function bookmarkButtonClicked() {
 
     // 변경된 favoriteParkingInfo 배열을 로컬 스토리지에 저장
     localStorage.setItem('favoriteParkingInfo', JSON.stringify(favoriteParkingInfo));
-
 }
 
+function bookmarkButtonClicked2(index, buttonId) {
+    var bookmarkButton = document.getElementById(buttonId);    var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
+    var favoriteParkingInfo = getFavoriteParkingInfoFromLocalStorage();
+
+    // 선택된 주차장 정보를 가져옴
+    var selectedParking = {
+        name: searchResults[index][0],
+        address: searchResults[index][2],
+        // 필요한 경우 추가 정보를 여기에 추가
+    };
+
+    if (bookmarkButton.classList.contains('btn-outline-primary')) {
+        // 북마크 버튼이 눌려지면, 선택된 주차장을 favoriteParkingInfo 배열에 추가
+        favoriteParkingInfo.push(selectedParking);
+        bookmarkButton.classList.remove('btn-outline-primary');
+        bookmarkButton.classList.add('btn-primary');
+    } else {
+        // 북마크 버튼이 해제되면, 선택된 주차장을 favoriteParkingInfo 배열에서 제거
+        favoriteParkingInfo = favoriteParkingInfo.filter(function(parking) {
+            return parking.name !== selectedParking.name || parking.address !== selectedParking.address;
+        });
+        bookmarkButton.classList.remove('btn-primary');
+        bookmarkButton.classList.add('btn-outline-primary');
+    }
+
+    // 변경된 favoriteParkingInfo 배열을 로컬 스토리지에 저장
+    console.log(favoriteParkingInfo);
+    localStorage.setItem('favoriteParkingInfo', JSON.stringify(favoriteParkingInfo));
+}

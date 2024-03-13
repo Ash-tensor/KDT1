@@ -48,6 +48,8 @@ function alarmButtonClicked() {
                 delay: 10000
             });
             toast.show();
+
+            alarmButtonClicked();
             console.log('알람 설정 완료 메시지 출력')
         }, 2500); // 알람 설정 완료 메시지를 2.5초 뒤에 표시
 
@@ -62,4 +64,48 @@ function alarmButtonClicked() {
 
     // 변경된 alarmInfo 배열을 로컬 스토리지에 저장
     saveAlarmInfoToLocalStorage(alarmInfo);
+}
+
+function alarmButtonClicked2(index, buttonId) {
+    var alarmButton = document.getElementById(buttonId);
+    var alarmInfo = getAlarmInfoFromLocalStorage();
+
+    // 선택된 주차장 정보를 가져옴
+    var selectedParking = {
+        name: searchResults[index][0],
+        address: searchResults[index][2],
+        // 필요한 경우 추가 정보를 여기에 추가
+    };
+
+    if (alarmButton.classList.contains('btn-outline-primary')) {
+        // 알람 버튼이 눌려지면, 선택된 주차장을 alarmParkingInfo 배열에 추가
+        alarmInfo.push(selectedParking);
+        alarmButton.classList.remove('btn-outline-primary');
+        alarmButton.classList.add('btn-primary');
+
+        setTimeout(function()
+        {
+            var toastElement = document.querySelector('.toast');
+            var toast = new bootstrap.Toast(toastElement, {
+                autohide: false,
+                delay: 10000
+            });
+            toast.show();
+            console.log('알람 설정 완료 메시지 출력')
+
+            alarmButtonClicked2(index, buttonId);
+
+        }, 2500); // 알람 설정 완료 메시지를 2.5초 뒤에 표시
+
+    } else {
+        // 알람 버튼이 해제되면, 선택된 주차장을 alarmParkingInfo 배열에서 제거
+        alarmInfo = alarmInfo.filter(function(parking) {
+            return parking.name !== selectedParking.name || parking.address !== selectedParking.address;
+        });
+        alarmButton.classList.remove('btn-primary');
+        alarmButton.classList.add('btn-outline-primary');
+    }
+
+    // 변경된 alarmParkingInfo 배열을 로컬 스토리지에 저장
+    localStorage.setItem('alarmInfo', JSON.stringify(alarmInfo));
 }
