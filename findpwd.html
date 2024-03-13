@@ -82,7 +82,10 @@
 <h1 class="myinfo">내 정보</h1>
 <hr><h3 class="t1">비밀번호 찾기</h3></hr>
 <p class="fid">비밀번호를 찾고자하는 아이디를 입력해주세요.</p>
-<div><input class="fid2" type="text" maxlength="15" placeholder="아이디"></div>
+<div id="chkbtn"><input id="userInput" class="fid2" type="text" maxlength="15" placeholder="아이디">
+    <button id="findid" class="btn btn-purple" type="button">
+    아이디 확인
+</button></div>
 <p class="fid3">아이디가 기억나지 않는다면?<a class="fid4" href="findID.html">아이디 찾기</a></p>
 <div class="block2">
     <div class="rtext">
@@ -96,16 +99,12 @@
         <div class="container">
             <div class="label2">휴대전화</div>
             <input type="tel" class="ph1" maxlength="20" placeholder="'-'없이 번호만 입력">
-            <button class="btn btn-purple ms-3 mt-3" type="button">
+            <button id="chknum2" class="btn btn-purple ms-3 mt-3" type="button">
                 인증번호 받기
             </button>
         </div>
         <input type="tel" class="ph2" max="6" placeholder="인증번호 6자리 숫자 입력">
-        <div class="ph3">인증번호가 오지 않나요
-            <button class="btn btn-purple ms-1 mt-1" type="button">
-                ?
-            </button>
-        </div>
+        <div class="ph3"><a class="alm" href="#none">인증번호가 오지 않나요?</a></div>
     </div>
     <button class="btn btn-purple next" type="button">
         다음
@@ -121,6 +120,36 @@
     </div>
     <span><a href="#none">파킹고 Corp.</a></span>
 </div>
+<!--로그인 사이드바-->
+
+<div class="offcanvas offcanvas-start gray-bg" tabindex="-1" id="loginOffcanvas" aria-labelledby="loginOffcanvasLabel">
+    <div>
+        <button type="button" class="btn-close text-reset right-array mt-4 me-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body pt-0">
+        <div>
+            <section class="login">
+                <h2 class="gugi-regular" id="dark-purple">LOGIN</h2>
+                <p></p> <!--개행-->
+                <ul>
+                    <li><input type="text" class="border-radius" placeholder=" 아이디" title="아이디입력"></li>
+                    <li><input type="password" class="border-radius" placeholder=" 비밀번호" title="비밀번호입력"></li>
+                    <li><input type="checkbox" id="chk_log"><label for="chk_log">로그인 상태 유지</label></li>
+                    <li><button id="loginButton">로그인</button></li>
+                </ul>
+                <hr class="hr-width">
+                <div>
+                    <ul class="no-padding ms-sm-3">
+                        <li><a href="findID.html">아이디 찾기</a></li>
+                        <li><a href="findpwd.html">비밀번호 찾기</a></li>
+                        <li><a href="signup.html">회원가입</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="findID.js"></script>
 <script src="script.js"></script>
 <script src="user-info-modify.js"></script>
 </body>

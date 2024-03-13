@@ -62,15 +62,12 @@
     <div class="container">
         <div class="label2">휴대전화</div>
         <input type="tel" class="ph1" maxlength="20" placeholder="'-'없이 번호만 입력">
-        <button class="btn btn-purple ms-3 mt-3" type="button">
+        <button id="chknum1" class="btn btn-purple ms-3 mt-3" type="button">
             인증번호 받기
         </button>
     </div>
         <input type="tel" class="ph2" max="6" placeholder="인증번호 6자리 숫자 입력">
-        <div class="ph3">인증번호가 오지 않나요
-            <button class="btn btn-purple ms-1 mt-1" type="button">
-                ?
-            </button>
+        <div class="ph3"><a class="alm" href="#none">인증번호가 오지 않나요?</a></div>
         <!--- 이메일로 인증 --->
             <div class="rtext2">
                 <input type="radio" id="emailVerification" name="verificationMethod" value="email">
@@ -84,16 +81,12 @@
                 <div class="container">
                     <div class="label2">이메일 주소</div>
                     <input type="tel" class="ph" maxlength="20">
-                    <button class="btn btn-purple ms-3 mt-3" type="button">
+                    <button id="chknum" class="btn btn-purple ms-3 mt-3" type="button">
                         인증번호 받기
                     </button>
                 </div>
                 <input type="tel" class="ph2" max="6" placeholder="인증번호 6자리 숫자 입력">
-                <div class="ph3">인증번호가 오지 않나요
-                    <button class="btn btn-purple ms-1 mt-1" type="button">
-                        ?
-                    </button>
-                </div>
+                <div class="ph3"><a class="alm" href="#none">인증번호가 오지 않나요?</a></div>
             </div>
         </div>
     </div>
@@ -143,5 +136,6 @@
 </div>
 <script src="script.js"></script>
 <script src="user-info-modify.js"></script>
+<script src="findID.js"></script>
 </body>
 </html>
