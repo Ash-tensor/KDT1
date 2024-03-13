@@ -69,16 +69,16 @@
                             <div id="search-wrap" class="search-wrap">
                                 <label for="search" class="blind">공지사항 내용 검색</label>
                                 <div class= "noticeDropdown" id="noticeDropdown">
-                                    <button class="btn dropdown-toggle noticeDropdownBtn" type="button" id="noticeRange" data-bs-toggle="dropdown" aria-expanded="false">제목+내용
+                                    <button class="btn dropdown-toggle noticeDropdownBtn" type="button" id="noticeRange" data-bs-toggle="dropdown" aria-expanded="false">제목
                                     </button>
                                     <ul class="dropdown-menu" >
-                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText('제목')" >제목</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText('내용')">내용</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText('제목+내용')">제목+내용</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeNoticeFilter('제목', 'title')">제목</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeNoticeFilter('내용', 'content')">내용</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeNoticeFilter('제목+내용', 'TitleAndContent')">제목+내용</a></li>
                                     </ul>
                                 </div>
                                 <input id="search" type="search" name="" value="">
-                                <button type="submit" class="searchBtn btn-dark">검색</button>
+                                <button type="button" class="searchBtn btn-dark" onclick="searchNotices()">검색</button>
                             </div>
                         </form>
                     </div>
@@ -98,43 +98,8 @@
                         </tr>
                         </thead>
                         <tbody id="notices">
-                        <tr onclick="viewsPlus(); showNotice();">
-                            <td>6</td>
-                            <th><a href="#!">주차정보안내시스템 12.15(금) 19:00 ~ 23:00 이용 제한 안내</a></th>
-                            <td>2024.03.11</td>
-                            <td class="views">1</td>
-                        </tr>
-                        <tr>
-                        <tr onclick="viewsPlus()">
-                            <td>5</td>
-                            <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.05</td>
-                            <td class="views">1</td>
-                        </tr>
-                        <tr onclick="viewsPlus()">
-                            <td>4</td>
-                            <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.05</td>
-                            <td class="views">1</td>
-                        </tr>
-                        <tr onclick="viewsPlus()">
-                            <td>3</td>
-                            <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.05</td>
-                            <td class="views">1</td>
-                        </tr>
-                        <tr onclick="viewsPlus()">
-                            <td>2</td>
-                            <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.05</td>
-                            <td class="views">1</td>
-                        </tr>
-                        <tr onclick="viewsPlus()">
-                            <td>1</td>
-                            <th><a href="#!">[공지사항] 개인정보 처리방침 변경안내처리방침</a></th>
-                            <td>2024.03.05</td>
-                            <td class="views">1</td>
-                        </tr>
+
+
                         </tbody>
                     </table>
 
@@ -142,26 +107,16 @@
                     <table id="noticeV2" class="board-table">
                         <thead>
                         <tr>
-                            <th scope="col" class="no-title">[공지사항] 개인정보 처리방침 변경안내처리방침
-                                <span class="no-date">등록일 : 2024.03.11</span>
-                                <span class="no-views">조회수 : </span>
+                            <th scope="col" class="no-title">
+                                <span class="no-date">등록일 : </span>
+                                <span class="no-views">조회수 : <span id="viewCount">0</span> </span>
                             </th>
 
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>안녕하세요. 주차정보안내시스템 입니다.
-
-
-                                클라우드센터 서버 보안장비 교체로 인한 웹서비스 일시중지가 있을 예정이오며, 해당 시간에는 웹/앱서비스 사용이 제한됩니다.
-                                시스템 사용자분들께서는 이점 참고해주시길 바라며, 하기 일정 확인부탁드립니다.
-
-                                작업일정 :12.15(금) 19:00 ~ 23:00 (예정)
-                                정상화 : 23:00 이후 예정
-
-
-                                감사합니다</td>
+                            <td></td>
                         </tr>
 
                         </tbody>
@@ -178,8 +133,6 @@
                                 </a>
                             </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
@@ -199,5 +152,48 @@
 </div>
 <script src="search.js"></script>
 <script src="placeholder.js"></script>
+<script>
+    function loadNotices() {
+    var noticesElement = document.getElementById('notices');
+
+    noticesdata.forEach(function(notice) {
+        var tr = document.createElement('tr');
+        //tr.setAttribute('onclick', 'viewsPlus(); showNotice();');
+
+        var tdNumber = document.createElement('td');
+        tdNumber.textContent = notice.number;
+
+        var thTitle = document.createElement('th');
+        var aTitle = document.createElement('a');
+        aTitle.setAttribute('href', '#!');
+        aTitle.textContent = notice.title;
+        thTitle.appendChild(aTitle);
+
+        var tdDate = document.createElement('td');
+        tdDate.textContent = notice.date;
+
+        var tdViews = document.createElement('td');
+        tdViews.className = 'views';
+        tdViews.textContent = '0'; // 조회수는 처음에는 0으로 설정
+
+        tr.addEventListener('click', function() {
+            viewsPlus(); // 조회수 증가 함수 호출
+            showNotice(notice.number); // showNotice 함수에 notice.number를 인자로 전달(클릭때 어떤 상세정보를 보고싶은지 알기위해)
+        });
+
+        tr.appendChild(tdNumber);
+        tr.appendChild(thTitle);
+        tr.appendChild(tdDate);
+        tr.appendChild(tdViews);
+
+        noticesElement.appendChild(tr);
+    });
+}
+
+// 페이지가 로드될 때 공지사항 목록을 로드합니다.
+window.onload = function() {
+    loadNotices();
+};
+</script>
 </body>
 </html>
