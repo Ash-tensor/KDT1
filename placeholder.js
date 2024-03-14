@@ -1,5 +1,6 @@
 const inputElement = document.getElementById("destinationInput");
 
+
 //공지 가상데이터
 var noticesdata= [
     {
@@ -32,6 +33,8 @@ inputElement.addEventListener("keyup", function(event) {
         searchParking();
     }
 });
+
+
 
 // 거리 옵션을 선택했을 때
 document.querySelectorAll('#rangeDropdown ul')[0].addEventListener('click', function(event) {
