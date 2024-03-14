@@ -60,10 +60,21 @@ function updateButtonLabel() {
 }
 
 // 로그인 버튼 누름 -> signIn 값을 true로 설정하고 세션 저장소에 저장 -> 사이드바 로드
+// 아이디에 'w'가 포함될시 로그인 실패
 document.getElementById("loginButton")?.addEventListener("click", function() {
-    signIn = true;
-    sessionStorage.setItem("signIn", "true");
-    offCanvasLoad();
+    // 아이디 입력값을 가져옴
+    var userid = document.getElementById('user_id').value;
+
+    // 아이디에 'w'가 포함되어 있는지 확인
+    if (userid.includes('w')) {
+        signIn = false;
+        // 로그인 실패창을 띄움
+        alert("계정이 존재하지 않습니다.");
+    } else {
+        signIn = true;
+        sessionStorage.setItem("signIn", "true");
+        offCanvasLoad();
+    }
 });
 
 // 로그아웃 버튼을 누름 -> signIn 값을 false로 설정하고 세션 저장소에 저장 -> 사이드바 로드
