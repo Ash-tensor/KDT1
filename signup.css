@@ -47,6 +47,17 @@
     margin-bottom: 20px;
 }
 
+/*회원 탈퇴 페이지의 하얀 박스*/
+.member2{
+    padding: 50px 20px;
+    position: relative;
+    /* 상하좌우 정중앙 정렬*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .member .field{
     margin :1100px 0;
 }
