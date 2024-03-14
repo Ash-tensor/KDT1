@@ -3,6 +3,7 @@
 /*--- 제목 속성 ---*/
 .myinfo {
     margin-left: 15px;
+    margin-top: 10px;
 }
 
 /*--- 제목 배열 ---*/
@@ -87,7 +88,6 @@ body{
     width: 400px;
     margin-top: 5px;
     margin-left: 20px;
-    border-radius: 5px;
 }
 
 /*--- 전화번호 입력 박스 속성 ---*/
@@ -95,7 +95,6 @@ body{
     width: 400px;
     margin-top: 15px;
     margin-left: 11px;
-    border-radius: 5px;
 }
 
 /*--- 이메일 입력 박스 속성 ---*/
@@ -103,7 +102,6 @@ body{
     width: 400px;
     margin-top: 15px;
     margin-left: -5px;
-    border-radius: 5px;
 }
 
 /*--- 휴대전화 제목 속성 ---*/
@@ -118,7 +116,6 @@ body{
     margin-left: 120px;
     margin-top: 1px;
     width: 200px;
-    border-radius: 5px;
 }
 
 .ph3 {
