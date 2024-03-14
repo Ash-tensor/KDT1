@@ -135,25 +135,30 @@ window.addEventListener('load', function() {
 
 // - 버튼을 누르면 관심 주차장이 삭제됨
 window.onload = function() {
-    document.getElementById('minusButton')?.addEventListener("click", function() {
-        // 클릭한 버튼의 부모 요소를 찾아서 해당 주차장 정보 추출
-        var parentElement = findParentByClass(this, 'gray-box2');
-        if (parentElement) {
-            var parkingName = parentElement.querySelector('.bold-text').textContent;
-            var parkingAddress = parentElement.querySelector('.small-text').textContent;
+    // 모든 minusButton에 대한 이벤트 리스너
+    var minusButtons = document.querySelectorAll('.minus');
 
-            // 관심 주차장 배열에서 해당 주차장 정보 삭제
-            removeFavoriteParking(parkingName, parkingAddress);
+    minusButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            // 클릭한 버튼의 부모 요소를 찾아서 해당 주차장 정보 추출
+            var parentElement = findParentByClass(this, 'gray-box2');
+            if (parentElement) {
+                var parkingName = parentElement.querySelector('.bold-text').textContent;
+                var parkingAddress = parentElement.querySelector('.small-text').textContent;
 
-            // 로컬 저장소에서 해당 주차장 정보 삭제
-            removeFavoriteParkingFromLocalStorage(parkingName, parkingAddress);
+                // 관심 주차장 배열에서 해당 주차장 정보 삭제
+                removeFavoriteParking(parkingName, parkingAddress);
 
-            // 클릭한 버튼의 부모 요소를 찾아 html에서 삭제
-            parentElement.parentNode.removeChild(parentElement);
+                // 로컬 저장소에서 해당 주차장 정보 삭제
+                removeFavoriteParkingFromLocalStorage(parkingName, parkingAddress);
 
-            // 페이지를 새로고침하여 변경 사항 반영
-            location.reload();
-        }
+                // 클릭한 버튼의 부모 요소를 찾아 html에서 삭제
+                parentElement.parentNode.removeChild(parentElement);
+
+                // 페이지를 새로고침하여 변경 사항 반영
+                location.reload();
+            }
+        });
     });
 };
 
